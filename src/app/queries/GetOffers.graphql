@@ -1,0 +1,24 @@
+query GetOffers {
+  offers {
+    author {
+      id
+      authorName
+      authorPhoto {
+        url
+      }
+    }
+    address
+    bedrooms
+    bathrooms
+    datePublished
+    label
+    flatInfo
+    flatArea
+    flatDescription
+    price
+    id
+    coverPhoto {
+      url
+    }
+  }
+}
