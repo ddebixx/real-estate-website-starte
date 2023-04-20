@@ -40,7 +40,7 @@
 .property_filters {
     display: flex;
     flex-wrap: wrap;
-    max-width: 650px;
+    max-width: 750px;
     gap: 2rem;
 }
 
@@ -50,10 +50,6 @@
     align-items: flex-start;
     justify-content: flex-start;
     gap: .2rem;
-}
-
-.select_option {
-    width: 300px;
 }
 
 .search_button {
@@ -69,3 +65,23 @@
     width: 100px;
     height: 40px;
 }
+
+.select_option {
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-size: 12px;
+    color: #333;
+    background-color: #fff;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+.menu_option {
+    padding: 8px;
+    font-size: 12px;
+    border-radius: none;
+    background-color: #fff;
+}
+  

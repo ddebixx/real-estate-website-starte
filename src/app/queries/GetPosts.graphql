@@ -1,0 +1,15 @@
+query getPosts {
+  posts {
+    postPublishDate
+    postTitle
+    postContent {
+      html
+    }
+    author {
+      authorName
+      authorPhoto {
+        url
+      }
+    }
+  }
+}

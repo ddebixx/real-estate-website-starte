@@ -2138,6 +2138,7 @@ export type Offer = Node & {
   locale: Locale;
   /** Get the other localizations for this document */
   localizations: Array<Offer>;
+  offerSlug?: Maybe<Scalars['String']>;
   price: Scalars['Float'];
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>;
@@ -2270,6 +2271,7 @@ export type OfferCreateInput = {
   label?: InputMaybe<Scalars['String']>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: InputMaybe<OfferCreateLocalizationsInput>;
+  offerSlug?: InputMaybe<Scalars['String']>;
   price: Scalars['Float'];
   updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
@@ -2442,6 +2444,25 @@ export type OfferManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']>;
+  offerSlug?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  offerSlug_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  offerSlug_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  offerSlug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  offerSlug_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  offerSlug_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  offerSlug_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  offerSlug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  offerSlug_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  offerSlug_starts_with?: InputMaybe<Scalars['String']>;
   price?: InputMaybe<Scalars['Float']>;
   /** All values greater than the given value. */
   price_gt?: InputMaybe<Scalars['Float']>;
@@ -2515,6 +2536,8 @@ export enum OfferOrderByInput {
   IdDesc = 'id_DESC',
   LabelAsc = 'label_ASC',
   LabelDesc = 'label_DESC',
+  OfferSlugAsc = 'offerSlug_ASC',
+  OfferSlugDesc = 'offerSlug_DESC',
   PriceAsc = 'price_ASC',
   PriceDesc = 'price_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
@@ -2539,6 +2562,7 @@ export type OfferUpdateInput = {
   label?: InputMaybe<Scalars['String']>;
   /** Manage document localizations */
   localizations?: InputMaybe<OfferUpdateLocalizationsInput>;
+  offerSlug?: InputMaybe<Scalars['String']>;
   price?: InputMaybe<Scalars['Float']>;
 };
 
@@ -2851,6 +2875,25 @@ export type OfferWhereInput = {
   label_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   label_starts_with?: InputMaybe<Scalars['String']>;
+  offerSlug?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  offerSlug_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  offerSlug_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  offerSlug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  offerSlug_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  offerSlug_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  offerSlug_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  offerSlug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  offerSlug_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  offerSlug_starts_with?: InputMaybe<Scalars['String']>;
   price?: InputMaybe<Scalars['Float']>;
   /** All values greater than the given value. */
   price_gt?: InputMaybe<Scalars['Float']>;
@@ -2920,6 +2963,7 @@ export type OfferWhereStageInput = {
 /** References Offer record uniquely */
 export type OfferWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']>;
+  offerSlug?: InputMaybe<Scalars['String']>;
 };
 
 /** Information about pagination in a connection. */
@@ -2955,6 +2999,9 @@ export type Post = Node & {
   /** Get the other localizations for this document */
   localizations: Array<Post>;
   postContent?: Maybe<RichText>;
+  postPublishDate: Scalars['Date'];
+  postSlug?: Maybe<Scalars['String']>;
+  postTitle: Scalars['String'];
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>;
   /** User that last published this document */
@@ -3063,6 +3110,9 @@ export type PostCreateInput = {
   localizations?: InputMaybe<PostCreateLocalizationsInput>;
   /** postContent input for default locale (en) */
   postContent?: InputMaybe<Scalars['RichTextAST']>;
+  postPublishDate: Scalars['Date'];
+  postSlug?: InputMaybe<Scalars['String']>;
+  postTitle: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
@@ -3155,6 +3205,59 @@ export type PostManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']>;
+  postPublishDate?: InputMaybe<Scalars['Date']>;
+  /** All values greater than the given value. */
+  postPublishDate_gt?: InputMaybe<Scalars['Date']>;
+  /** All values greater than or equal the given value. */
+  postPublishDate_gte?: InputMaybe<Scalars['Date']>;
+  /** All values that are contained in given list. */
+  postPublishDate_in?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  /** All values less than the given value. */
+  postPublishDate_lt?: InputMaybe<Scalars['Date']>;
+  /** All values less than or equal the given value. */
+  postPublishDate_lte?: InputMaybe<Scalars['Date']>;
+  /** Any other value that exists and is not equal to the given value. */
+  postPublishDate_not?: InputMaybe<Scalars['Date']>;
+  /** All values that are not contained in given list. */
+  postPublishDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  postSlug?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  postSlug_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  postSlug_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  postSlug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  postSlug_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  postSlug_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  postSlug_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  postSlug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  postSlug_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  postSlug_starts_with?: InputMaybe<Scalars['String']>;
+  postTitle?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  postTitle_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  postTitle_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  postTitle_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  postTitle_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  postTitle_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  postTitle_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  postTitle_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  postTitle_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  postTitle_starts_with?: InputMaybe<Scalars['String']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -3197,6 +3300,12 @@ export enum PostOrderByInput {
   CreatedAtDesc = 'createdAt_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
+  PostPublishDateAsc = 'postPublishDate_ASC',
+  PostPublishDateDesc = 'postPublishDate_DESC',
+  PostSlugAsc = 'postSlug_ASC',
+  PostSlugDesc = 'postSlug_DESC',
+  PostTitleAsc = 'postTitle_ASC',
+  PostTitleDesc = 'postTitle_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
@@ -3209,6 +3318,9 @@ export type PostUpdateInput = {
   localizations?: InputMaybe<PostUpdateLocalizationsInput>;
   /** postContent input for default locale (en) */
   postContent?: InputMaybe<Scalars['RichTextAST']>;
+  postPublishDate?: InputMaybe<Scalars['Date']>;
+  postSlug?: InputMaybe<Scalars['String']>;
+  postTitle?: InputMaybe<Scalars['String']>;
 };
 
 export type PostUpdateLocalizationDataInput = {
@@ -3252,6 +3364,8 @@ export type PostUpdateManyInput = {
   localizations?: InputMaybe<PostUpdateManyLocalizationsInput>;
   /** postContent input for default locale (en) */
   postContent?: InputMaybe<Scalars['RichTextAST']>;
+  postPublishDate?: InputMaybe<Scalars['Date']>;
+  postTitle?: InputMaybe<Scalars['String']>;
 };
 
 export type PostUpdateManyLocalizationDataInput = {
@@ -3372,6 +3486,59 @@ export type PostWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']>;
+  postPublishDate?: InputMaybe<Scalars['Date']>;
+  /** All values greater than the given value. */
+  postPublishDate_gt?: InputMaybe<Scalars['Date']>;
+  /** All values greater than or equal the given value. */
+  postPublishDate_gte?: InputMaybe<Scalars['Date']>;
+  /** All values that are contained in given list. */
+  postPublishDate_in?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  /** All values less than the given value. */
+  postPublishDate_lt?: InputMaybe<Scalars['Date']>;
+  /** All values less than or equal the given value. */
+  postPublishDate_lte?: InputMaybe<Scalars['Date']>;
+  /** Any other value that exists and is not equal to the given value. */
+  postPublishDate_not?: InputMaybe<Scalars['Date']>;
+  /** All values that are not contained in given list. */
+  postPublishDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  postSlug?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  postSlug_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  postSlug_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  postSlug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  postSlug_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  postSlug_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  postSlug_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  postSlug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  postSlug_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  postSlug_starts_with?: InputMaybe<Scalars['String']>;
+  postTitle?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  postTitle_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  postTitle_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  postTitle_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  postTitle_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  postTitle_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  postTitle_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  postTitle_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  postTitle_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  postTitle_starts_with?: InputMaybe<Scalars['String']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -3426,6 +3593,7 @@ export type PostWhereStageInput = {
 /** References Post record uniquely */
 export type PostWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']>;
+  postSlug?: InputMaybe<Scalars['String']>;
 };
 
 export type PublishLocaleInput = {
@@ -5310,7 +5478,12 @@ export enum _SystemDateTimeFieldVariation {
 export type GetOffersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?: 'Offer', address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatArea: string, flatDescription: string, price: number, id: string, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, coverPhoto: Array<{ __typename?: 'Asset', url: string }> }> };
+export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?: 'Offer', address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatArea: string, flatDescription: string, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, coverPhoto: Array<{ __typename?: 'Asset', url: string }> }> };
+
+export type GetPostsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', postPublishDate: any, postTitle: string, postContent?: { __typename?: 'RichText', html: string } | null, author?: { __typename?: 'Author', authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null }> };
 
 
       export type PossibleTypesResultData = {
@@ -5355,6 +5528,7 @@ export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?
     
 export const namedOperations = {
   Query: {
-    GetOffers: 'GetOffers'
+    GetOffers: 'GetOffers',
+    getPosts: 'getPosts'
   }
 }

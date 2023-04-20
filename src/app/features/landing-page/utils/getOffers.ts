@@ -1,10 +1,12 @@
-import { GetOffersDocument } from "@/app/queries/GetOffers.generated"
+// import { GetOffersDocument } from "@/app/queries/GetOffers.generated"
 import { client } from "../apollo-client"
-import { GetOffersQuery } from "@/types"
+import { GetOffersQuery } from "../../../../types"
+import { GetOffersDocument } from "../../../queries/GetOffers.generated"
+// import { GetOffersQuery } from "@/types"
 
 export const getOffers = async () => {
     const { data: offers } = await client.query<GetOffersQuery>({
-        query: GetOffersDocument,
+        query: GetOffersDocument, variables: {offerSlug: "very-nice"}
     })
 
     return {

@@ -17,6 +17,7 @@ query GetOffers {
     flatDescription
     price
     id
+    offerSlug
     coverPhoto {
       url
     }

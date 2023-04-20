@@ -3,7 +3,8 @@
 import Link from "next/link"
 import React, { useState } from "react"
 import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
-import styles from "../../styles/landing-page/Filters.module.scss"
+import styles from "../../styles/landing-page/filters/Filters.module.scss"
+import { CheckboxDemo } from "./filters/Checkbox";
 
 export const Filters = () => {
     const [menu, setMenu] = useState(false);
@@ -20,81 +21,61 @@ export const Filters = () => {
                 </button>
                 <div className={`${menu ? 'block' : 'hidden'}`}>
                     <div className={styles.filters}>
-                        <ul className={styles.property_type}>
-                            <li className={styles.property}>
-                                <input type="checkbox" name="" id="appartaments" />
-                                <label htmlFor="appartaments">Квартири</label>
-                            </li>
-                            <li className={styles.property}>
-                                <input type="checkbox" name="" id="appartaments" />
-                                <label htmlFor="appartaments">Земля</label>
-                            </li>
-                            <li className={styles.property}>
-                                <input type="checkbox" name="" id="appartaments" />
-                                <label htmlFor="appartaments">Оренда</label>
-                            </li>
-                            <li className={styles.property}>
-                                <input type="checkbox" name="" id="appartaments" />
-                                <label htmlFor="appartaments">Будинок / Дача</label>
-                            </li>
-                            <li className={styles.property}>
-                                <input type="checkbox" name="" id="appartaments" />
-                                <label htmlFor="appartaments">Комерційна</label>
-                            </li>
-                        </ul>
+                        <CheckboxDemo />
                         <ul className={styles.property_filters}>
                             <li className={styles.property_options}>
                                 Район
                                 <label htmlFor="district"></label>
                                 <select name="" id="district" className={styles.select_option}>
-                                    <option value="">Виберіть</option>
-                                    <option value="">Опція</option>
-                                    <option value="">Опція</option>
-                                    <option value="">Опція</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
                                 </select>
                             </li>
                             <li className={styles.property_options}>
                                 Країна
-                                <label htmlFor="country"></label>
-                                <select name="" id="country">
-                                    <option value="">Виберіть</option>
-                                    <option value="">Опція</option>
-                                    <option value="">Опція</option>
-                                    <option value="">Опція</option>
+                                <label htmlFor="district"></label>
+                                <select name="" id="district" className={styles.select_option}>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
                                 </select>
                             </li>
                             <li className={styles.property_options}>
                                 Кімнати
-                                <label htmlFor="rooms"></label>
-                                <select name="" id="rooms">
-                                    <option value="">Виберіть</option>
-                                    <option value="">Опція</option>
-                                    <option value="">Опція</option>
-                                    <option value="">Опція</option>
-                                    <option value="">Опція</option>
+                                <label htmlFor="district"></label>
+                                <select name="" id="district" className={styles.select_option}>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
                                 </select>
                             </li>
                             <li className={styles.property_options}>
                                 Від:
-                                <label htmlFor="priceFrom"></label>
-                                <select name="" id="priceFrom">
-                                    <option value="">Виберіть</option>
-                                    <option value="">Опція</option>
-                                    <option value="">Опція</option>
-                                    <option value="">Опція</option>
-                                    <option value="">Опція</option>
-                                    <option value="">Опція</option>
+                                <label htmlFor="district"></label>
+                                <select name="" id="district" className={styles.select_option}>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
                                 </select>
                             </li>
                             <li className={styles.property_options}>
                                 До:
-                                <label htmlFor="priceTo"></label>
-                                <select name="" id="priceTo">
-                                    <option value="">Виберіть</option>
-                                    <option value="">Опція</option>
-                                    <option value="">Опція</option>
-                                    <option value="">Опція</option>
-                                    <option value="">Опція</option>
+                                <label htmlFor="district"></label>
+                                <select name="" id="district" className={styles.select_option}>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
+                                    <option value="" className={styles.menu_option}>Виберіть</option>
                                 </select>
                             </li>
                         </ul>

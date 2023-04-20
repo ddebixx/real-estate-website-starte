@@ -6,7 +6,7 @@ const defaultOptions = {} as const;
 export type GetOffersQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?: 'Offer', address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatArea: string, flatDescription: string, price: number, id: string, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, coverPhoto: Array<{ __typename?: 'Asset', url: string }> }> };
+export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?: 'Offer', address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatArea: string, flatDescription: string, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, coverPhoto: Array<{ __typename?: 'Asset', url: string }> }> };
 
 
 export const GetOffersDocument = gql`
@@ -29,6 +29,7 @@ export const GetOffersDocument = gql`
     flatDescription
     price
     id
+    offerSlug
     coverPhoto {
       url
     }
