@@ -4,7 +4,7 @@ import { client } from "../apollo-client"
 
 export const getPosts = async () => {
     const { data: posts } = await client.query<GetPostsQuery>({
-        query: GetPostsDocument, variables: {offerSlug: "very-nice"}
+        query: GetPostsDocument
     })
 
     return {

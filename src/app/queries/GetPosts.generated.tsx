@@ -6,14 +6,16 @@ const defaultOptions = {} as const;
 export type GetPostsQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type GetPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', postPublishDate: any, postTitle: string, postContent?: { __typename?: 'RichText', html: string } | null, author?: { __typename?: 'Author', authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null }> };
+export type GetPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, postPublishDate: any, postTitle: string, postSlug?: string | null, postContent?: { __typename?: 'RichText', html: string } | null, author?: { __typename?: 'Author', authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null }> };
 
 
 export const GetPostsDocument = gql`
-    query getPosts {
+    query GetPosts {
   posts {
+    id
     postPublishDate
     postTitle
+    postSlug
     postContent {
       html
     }

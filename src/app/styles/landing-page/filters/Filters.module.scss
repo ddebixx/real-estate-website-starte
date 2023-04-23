@@ -76,12 +76,17 @@
     border-radius: 4px;
     border: none;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-  }
-  
-.menu_option {
-    padding: 8px;
-    font-size: 12px;
-    border-radius: none;
-    background-color: #fff;
 }
-  
+
+.menu_option {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    height: 30px;
+}
+
+.select_option div:hover {
+    background-color: #f1f1f1;
+}

@@ -1,0 +1,25 @@
+query GetOffer($offerSlug: String!) {
+  offer (where: {offerSlug: $offerSlug}) {
+    author {
+      id
+      authorName
+      authorPhoto {
+        url
+      }
+    }
+    address
+    bedrooms
+    bathrooms
+    datePublished
+    label
+    flatInfo
+    flatArea
+    flatDescription
+    price
+    id
+    offerSlug
+    coverPhoto {
+      url
+    }
+  }
+}

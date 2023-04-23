@@ -1,0 +1,73 @@
+.service_container {
+    display: flex;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service_list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.service_item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.service_icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50vw;
+    object-fit: cover;
+    color: var(--main-color);
+}
+
+.hero_container {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.hero_container h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--main-color);
+}
+
+.achievements_list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 100px;
+
+    li > div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-self: center;
+        gap: 1rem;
+        font-size: 2rem;
+        font-weight: 600;
+    };
+}
+
+
+.achievements_icon {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    color: var(--main-color);
+}

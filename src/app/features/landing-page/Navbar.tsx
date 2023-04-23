@@ -43,27 +43,27 @@ export const Navbar = () => {
                             max-lg:text-3xl">
                                 <li className={styles.menu_item}>
                                     <Link href="#">
-                                        COLLECTION
+                                        Головна
                                     </Link>
                                 </li>
                                 <li className={styles.menu_item}>
                                     <Link href="../../about">
-                                        ABOUT
+                                        Оголошення
                                     </Link>
                                 </li>
                                 <li className={styles.menu_item}>
                                     <Link href="#">
-                                        COLLECTION
+                                        Додаткова інформація
                                     </Link>
                                 </li>
                                 <li className={styles.menu_item}>
                                     <Link href="../../about">
-                                        ABOUT
+                                        Статті
                                     </Link>
                                 </li>
                                 <li className={styles.menu_item}>
                                     <Link href="#">
-                                        COLLECTION
+                                        Контакти
                                     </Link>
                                 </li>
                             </ul>

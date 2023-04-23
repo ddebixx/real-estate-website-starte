@@ -1,0 +1,11 @@
+query GetAuthors {
+  authors {
+    id
+    authorName
+    authorNumber
+    authorPhoto {
+      id
+      url
+    }
+  }
+}

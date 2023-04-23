@@ -731,6 +731,7 @@ export type AssetWhereUniqueInput = {
 export type Author = Node & {
   __typename?: 'Author';
   authorName: Scalars['String'];
+  authorNumber?: Maybe<Scalars['String']>;
   authorPhoto?: Maybe<Asset>;
   /** The time the document was created */
   createdAt: Scalars['DateTime'];
@@ -852,6 +853,7 @@ export type AuthorConnection = {
 
 export type AuthorCreateInput = {
   authorName: Scalars['String'];
+  authorNumber?: InputMaybe<Scalars['String']>;
   authorPhoto?: InputMaybe<AssetCreateOneInlineInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   offers?: InputMaybe<OfferCreateManyInlineInput>;
@@ -911,6 +913,25 @@ export type AuthorManyWhereInput = {
   authorName_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   authorName_starts_with?: InputMaybe<Scalars['String']>;
+  authorNumber?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  authorNumber_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  authorNumber_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  authorNumber_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  authorNumber_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  authorNumber_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  authorNumber_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  authorNumber_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  authorNumber_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  authorNumber_starts_with?: InputMaybe<Scalars['String']>;
   authorPhoto?: InputMaybe<AssetWhereInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
@@ -996,6 +1017,8 @@ export type AuthorManyWhereInput = {
 export enum AuthorOrderByInput {
   AuthorNameAsc = 'authorName_ASC',
   AuthorNameDesc = 'authorName_DESC',
+  AuthorNumberAsc = 'authorNumber_ASC',
+  AuthorNumberDesc = 'authorNumber_DESC',
   CreatedAtAsc = 'createdAt_ASC',
   CreatedAtDesc = 'createdAt_DESC',
   IdAsc = 'id_ASC',
@@ -1008,6 +1031,7 @@ export enum AuthorOrderByInput {
 
 export type AuthorUpdateInput = {
   authorName?: InputMaybe<Scalars['String']>;
+  authorNumber?: InputMaybe<Scalars['String']>;
   authorPhoto?: InputMaybe<AssetUpdateOneInlineInput>;
   offers?: InputMaybe<OfferUpdateManyInlineInput>;
   posts?: InputMaybe<PostUpdateManyInlineInput>;
@@ -1032,6 +1056,7 @@ export type AuthorUpdateManyInlineInput = {
 
 export type AuthorUpdateManyInput = {
   authorName?: InputMaybe<Scalars['String']>;
+  authorNumber?: InputMaybe<Scalars['String']>;
 };
 
 export type AuthorUpdateManyWithNestedWhereInput = {
@@ -1112,6 +1137,25 @@ export type AuthorWhereInput = {
   authorName_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   authorName_starts_with?: InputMaybe<Scalars['String']>;
+  authorNumber?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  authorNumber_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  authorNumber_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  authorNumber_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  authorNumber_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  authorNumber_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  authorNumber_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  authorNumber_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  authorNumber_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  authorNumber_starts_with?: InputMaybe<Scalars['String']>;
   authorPhoto?: InputMaybe<AssetWhereInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
@@ -5475,15 +5519,34 @@ export enum _SystemDateTimeFieldVariation {
   Localization = 'localization'
 }
 
+export type GetAuthorsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAuthorsQuery = { __typename?: 'Query', authors: Array<{ __typename?: 'Author', id: string, authorName: string, authorNumber?: string | null, authorPhoto?: { __typename?: 'Asset', id: string, url: string } | null }> };
+
+export type GetOfferQueryVariables = Exact<{
+  offerSlug: Scalars['String'];
+}>;
+
+
+export type GetOfferQuery = { __typename?: 'Query', offer?: { __typename?: 'Offer', address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatArea: string, flatDescription: string, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, coverPhoto: Array<{ __typename?: 'Asset', url: string }> } | null };
+
 export type GetOffersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?: 'Offer', address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatArea: string, flatDescription: string, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, coverPhoto: Array<{ __typename?: 'Asset', url: string }> }> };
 
+export type GetPostQueryVariables = Exact<{
+  postSlug: Scalars['String'];
+}>;
+
+
+export type GetPostQuery = { __typename?: 'Query', post?: { __typename?: 'Post', postPublishDate: any, postTitle: string, postSlug?: string | null, postContent?: { __typename?: 'RichText', html: string } | null, author?: { __typename?: 'Author', authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null } | null };
+
 export type GetPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', postPublishDate: any, postTitle: string, postContent?: { __typename?: 'RichText', html: string } | null, author?: { __typename?: 'Author', authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null }> };
+export type GetPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, postPublishDate: any, postTitle: string, postSlug?: string | null, postContent?: { __typename?: 'RichText', html: string } | null, author?: { __typename?: 'Author', authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null }> };
 
 
       export type PossibleTypesResultData = {
@@ -5528,7 +5591,10 @@ export type GetPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 
     
 export const namedOperations = {
   Query: {
+    GetAuthors: 'GetAuthors',
+    GetOffer: 'GetOffer',
     GetOffers: 'GetOffers',
-    getPosts: 'getPosts'
+    GetPost: 'GetPost',
+    GetPosts: 'GetPosts'
   }
 }

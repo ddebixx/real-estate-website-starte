@@ -1,0 +1,41 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: flex-start;
+    gap: 1rem;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.contact h4 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--main-color);
+    margin-bottom: 10px;
+}
+
+.contact ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .contact_icon {
+        width: 24px;
+        height: 24px;
+        color: var(--main-color-light);
+    }
+
+    li .contact_icon {
+        transition: all .3s;
+        width: auto;
+    }
+
+    li:hover .contact_icon {
+        color: var(--main-color);
+        scale: 1.1;
+    }
+}

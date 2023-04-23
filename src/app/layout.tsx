@@ -1,6 +1,7 @@
 import { Poppins } from 'next/font/google'
 import { Navbar } from './features/landing-page/Navbar'
 import './globals.css'
+import { Footer } from './features/landing-page/Footer'
 
 export const metadata = {
   title: 'kovcheg',
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body className={`${poppins.className}`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   )
