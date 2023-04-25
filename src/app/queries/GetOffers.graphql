@@ -14,7 +14,7 @@ query GetOffers {
     label
     flatInfo
     flatArea
-    flatDescription
+    flatTitle
     price
     id
     offerSlug

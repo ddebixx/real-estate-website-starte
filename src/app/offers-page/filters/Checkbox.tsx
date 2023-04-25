@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Checkbox from '@radix-ui/react-checkbox';
-import styles from '../../../styles/landing-page/filters/Checkbox.module.scss';
+import styles from '../../styles/offers-page/filters/Checkbox.module.scss';
 
 export const CheckboxDemo = () => (
 

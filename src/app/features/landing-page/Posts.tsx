@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getPosts } from './utils/getPosts';
-import styles from '../../styles/landing-page/Post.module.scss';
+import styles from '../../styles/posts-page/Post.module.scss';
 
 export const Posts = async () => {
 
@@ -10,7 +10,6 @@ export const Posts = async () => {
 
     return (
         <>
-            <h2 className={styles.posts_header}>Цікаві дописи:</h2>
             <div className={styles.post_container}>
                 {posts.posts.map(posts =>
                     <Link key={posts.id} href={`/post/${posts.postSlug}`}>
@@ -27,8 +26,7 @@ export const Posts = async () => {
                         
                         max-md:max-w-[250px]
                         max-md:overflow-hidden">{posts.postTitle}</h2>
-                                <div dangerouslySetInnerHTML={{ __html: posts.postContent.html }}></div>
-
+                                <div dangerouslySetInnerHTML={{ __html: posts.postContent.html }} className="line-clamp-[7]"></div>
                             </div>
                             <div className={`${styles.author} 
                         flex

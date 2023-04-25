@@ -9,21 +9,22 @@ export const Navbar = () => {
     const [menu, setMenu] = useState(false);
     return (
         <>
-            <nav className={styles.navbar}>
-                <Link href="#">
-                    <h2 className={`text-3xl  
+            <header className={styles.header}>
+                <div className={styles.navbar}>
+                    <Link href="#">
+                        <h2 className={`text-3xl  
                         font-bold ${styles.nav_logo}`}>kovcheg.eu</h2>
-                </Link>
-                <div>
+                    </Link>
                     <div>
-                        <div
-                            className={`
+                        <div>
+                            <div
+                                className={`
                                 justify-self-center 
                             
                                 lg:block 
                                 lg:pb-0 
                                 lg:mt-0 ${menu ? 'block' : 'hidden'}`}>
-                            <ul className="flex
+                                <ul className="flex
                             items-center 
                             justify-center
                             gap-8
@@ -41,52 +42,53 @@ export const Navbar = () => {
                             max-lg:flex-col
                             max-lg:gap-10
                             max-lg:text-3xl">
-                                <li className={styles.menu_item}>
-                                    <Link href="#">
-                                        Головна
-                                    </Link>
-                                </li>
-                                <li className={styles.menu_item}>
-                                    <Link href="../../about">
-                                        Оголошення
-                                    </Link>
-                                </li>
-                                <li className={styles.menu_item}>
-                                    <Link href="#">
-                                        Додаткова інформація
-                                    </Link>
-                                </li>
-                                <li className={styles.menu_item}>
-                                    <Link href="../../about">
-                                        Статті
-                                    </Link>
-                                </li>
-                                <li className={styles.menu_item}>
-                                    <Link href="#">
-                                        Контакти
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                        <button
-                            className=" outline-none 
+                                    <li className={styles.menu_item}>
+                                        <Link href="#">
+                                            Головна
+                                        </Link>
+                                    </li>
+                                    <li className={styles.menu_item}>
+                                        <Link href="/offers-page/">
+                                            Оголошення
+                                        </Link>
+                                    </li>
+                                    <li className={styles.menu_item}>
+                                        <Link href="#">
+                                            Додаткова інформація
+                                        </Link>
+                                    </li>
+                                    <li className={styles.menu_item}>
+                                        <Link href="/posts-page/">
+                                            Статті
+                                        </Link>
+                                    </li>
+                                    <li className={styles.menu_item}>
+                                        <Link href="#contact">
+                                            Контакти
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button
+                                className=" outline-none 
                     focus:border-0
                     hidden
                     
                     max-lg:block"
-                            onClick={() => setMenu(!menu)}
-                        >
-                            {menu ? (
-                                <MenuRoundedIcon />
-                            ) : (
-                                <MenuRoundedIcon />
-                            )}
-                        </button>
-                        <div className="lg:hidden">
+                                onClick={() => setMenu(!menu)}
+                            >
+                                {menu ? (
+                                    <MenuRoundedIcon />
+                                ) : (
+                                    <MenuRoundedIcon />
+                                )}
+                            </button>
+                            <div className="lg:hidden">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </nav>
+            </header>
         </>
     );
 }

@@ -14,7 +14,10 @@ query GetOffer($offerSlug: String!) {
     label
     flatInfo
     flatArea
-    flatDescription
+    flatTitle
+    flatDescription {
+      html
+    }
     price
     id
     offerSlug

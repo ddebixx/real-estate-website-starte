@@ -12,9 +12,9 @@ export default async function PostPage({
 
     return (
         <>
-            <div>
+            <div className="min-h-[50vh] mx-auto max-w-[1200px] my-24">
                 <Image src={post.post.author.authorPhoto.url} alt="" width={100} height={100}></Image>
-                asdasdasdasdasdasdasasdas
+                <h1>{post.post.postTitle}</h1>
             </div>
         </>
     )

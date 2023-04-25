@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from '../../styles/landing-page/Offer.module.scss';
+import styles from '../styles/offers-page/Offers.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getOffers } from './utils/getOffers';
+import { getOffers } from '../features/landing-page/utils/getOffers';
 
 export const Offers = async () => {
 
@@ -22,7 +22,7 @@ export const Offers = async () => {
 
                         </div>
                         <div className={styles.offer_info}>
-                            <p className={styles.flat_description}>{offers.flatDescription}</p>
+                            <p className={styles.flat_description}>{offers.flatTitle}</p>
                             <p className={styles.address}>{offers.address}</p>
                             <ul className={styles.flat_info}>
                                 <li className={styles.bedrooms}>Спалень: {offers.bedrooms}</li>
