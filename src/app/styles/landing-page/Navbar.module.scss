@@ -1,15 +1,24 @@
-.navbar {
+.header {
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     color: var(--main-color);
     padding: 1rem 2rem;
     position: fixed;
     top: 0;
     z-index: 23423423;
     background: white;
+    box-shadow: 0 0 15px rgba($color: #000, $alpha: .1);
+}
+
+.navbar {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .nav_button {
@@ -59,6 +68,10 @@
 }
 
 @media screen and (max-width: 1024px) {
+    .header {
+        height: 50px;
+    }
+    
     .navbar {
         .nav_button {
             display: block;

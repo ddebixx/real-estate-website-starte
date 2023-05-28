@@ -1,5 +1,5 @@
-query GetOffers {
-  offers {
+query GetOffers($skip: Int!) {
+  offers(orderBy: datePublished_DESC, first: 2, skip: $skip) {
     author {
       id
       authorName
@@ -13,13 +13,34 @@ query GetOffers {
     datePublished
     label
     flatInfo
+    flatTitle
     flatArea
-    flatDescription
+    flatDescription {
+      html
+    }
     price
     id
     offerSlug
     coverPhoto {
       url
+    }
+  }
+  offersConnection {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      endCursor
+      pageSize
+      startCursor
+    }
+    edges {
+      node {
+        address
+        id
+      }
+    }
+    aggregate {
+      count
     }
   }
 }

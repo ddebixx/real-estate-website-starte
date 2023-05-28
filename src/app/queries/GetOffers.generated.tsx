@@ -3,15 +3,17 @@ import * as Types from '../../types';
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
-export type GetOffersQueryVariables = Types.Exact<{ [key: string]: never; }>;
+export type GetOffersQueryVariables = Types.Exact<{
+  skip: Types.Scalars['Int'];
+}>;
 
 
-export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?: 'Offer', address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatArea: string, flatDescription: string, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, coverPhoto: Array<{ __typename?: 'Asset', url: string }> }> };
+export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?: 'Offer', address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatTitle: string, flatArea: string, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, flatDescription: { __typename?: 'RichText', html: string }, coverPhoto: Array<{ __typename?: 'Asset', url: string }> }>, offersConnection: { __typename?: 'OfferConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, endCursor?: string | null, pageSize?: number | null, startCursor?: string | null }, edges: Array<{ __typename?: 'OfferEdge', node: { __typename?: 'Offer', address: string, id: string } }>, aggregate: { __typename?: 'Aggregate', count: number } } };
 
 
 export const GetOffersDocument = gql`
-    query GetOffers {
-  offers {
+    query GetOffers($skip: Int!) {
+  offers(orderBy: datePublished_DESC, first: 2, skip: $skip) {
     author {
       id
       authorName
@@ -25,13 +27,34 @@ export const GetOffersDocument = gql`
     datePublished
     label
     flatInfo
+    flatTitle
     flatArea
-    flatDescription
+    flatDescription {
+      html
+    }
     price
     id
     offerSlug
     coverPhoto {
       url
+    }
+  }
+  offersConnection {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      endCursor
+      pageSize
+      startCursor
+    }
+    edges {
+      node {
+        address
+        id
+      }
+    }
+    aggregate {
+      count
     }
   }
 }
@@ -49,10 +72,11 @@ export const GetOffersDocument = gql`
  * @example
  * const { data, loading, error } = useGetOffersQuery({
  *   variables: {
+ *      skip: // value for 'skip'
  *   },
  * });
  */
-export function useGetOffersQuery(baseOptions?: Apollo.QueryHookOptions<GetOffersQuery, GetOffersQueryVariables>) {
+export function useGetOffersQuery(baseOptions: Apollo.QueryHookOptions<GetOffersQuery, GetOffersQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
         return Apollo.useQuery<GetOffersQuery, GetOffersQueryVariables>(GetOffersDocument, options);
       }

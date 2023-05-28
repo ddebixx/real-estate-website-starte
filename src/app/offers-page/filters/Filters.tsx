@@ -3,8 +3,8 @@
 import Link from "next/link"
 import React, { useState } from "react"
 import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
-import styles from "../../styles/landing-page/filters/Filters.module.scss"
-import { CheckboxDemo } from "./filters/Checkbox";
+import styles from "../../styles/offers-page/filters/Filters.module.scss"
+import { FilterCheckbox } from "./Checkbox";
 
 export const Filters = () => {
     const [menu, setMenu] = useState(false);
@@ -21,7 +21,7 @@ export const Filters = () => {
                 </button>
                 <div className={`${menu ? 'block' : 'hidden'}`}>
                     <div className={styles.filters}>
-                        <CheckboxDemo />
+                        <FilterCheckbox />
                         <ul className={styles.property_filters}>
                             <li className={styles.property_options}>
                                 Район

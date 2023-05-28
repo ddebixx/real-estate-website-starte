@@ -8,7 +8,7 @@ export type GetOfferQueryVariables = Types.Exact<{
 }>;
 
 
-export type GetOfferQuery = { __typename?: 'Query', offer?: { __typename?: 'Offer', address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatArea: string, flatDescription: string, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, coverPhoto: Array<{ __typename?: 'Asset', url: string }> } | null };
+export type GetOfferQuery = { __typename?: 'Query', offer?: { __typename?: 'Offer', address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatArea: string, flatTitle: string, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, flatDescription: { __typename?: 'RichText', html: string }, coverPhoto: Array<{ __typename?: 'Asset', url: string }> } | null };
 
 
 export const GetOfferDocument = gql`
@@ -28,7 +28,10 @@ export const GetOfferDocument = gql`
     label
     flatInfo
     flatArea
-    flatDescription
+    flatTitle
+    flatDescription {
+      html
+    }
     price
     id
     offerSlug

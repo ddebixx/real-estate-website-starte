@@ -1,15 +1,19 @@
 .post_container {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
     width: 100%;
-    max-width: 1200px;
-    flex-wrap: wrap;
+    min-height: 50vh;
+    max-width: 800px;
+    padding: 0 2rem;
+    margin: auto;
 }
 
-.posts_header {
-    align-self: flex-start;
-    font-size: 1.5rem;
+.post_header {
+    font-size: 2rem;
+    font-weight: 500;
 }
 
 .card {
@@ -18,10 +22,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 16px;
+    gap: 1rem;
     width: 350px;
     height: 300px;
-    backdrop-filter: blur(5px);
     padding: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
@@ -39,15 +42,15 @@
     object-fit: cover;
 }
 
-@media screen and (max-width: 1024px) {
-    .card {
-        max-width: 250px;
-        width: 100%;
-        height: 300px;
-        justify-items: flex-end;
-    }
 
-    
+
+@media screen and (max-width: 1024px) {
+    .post_container {
+        gap: 2rem;
+        height: 350px;
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
 
     .imgContainer img {
         max-width: 100%;

@@ -33,8 +33,6 @@ export const HeroSection = () => {
                         <EditNoteRoundedIcon className={styles.service_icon} />
                         Оформлення та реєстрація угод
                     </li>
-                </ul>
-                <ul className={styles.service_list}>
                     <li className={styles.service_item}>
                         <QueryStatsRoundedIcon className={styles.service_icon} />
                         Консалтинг на ринку нерухомості
@@ -47,8 +45,6 @@ export const HeroSection = () => {
                         <BusinessCenterRoundedIcon className={styles.service_icon} />
                         Представлення інтересів клієнтів
                     </li>
-                </ul>
-                <ul className={styles.service_list}>
                     <li className={styles.service_item}>
                         <ThumbUpRoundedIcon className={styles.service_icon} />
                         Довірче управління нерухомістю
@@ -63,6 +59,13 @@ export const HeroSection = () => {
                     </li>
                 </ul>
             </div>
+            {/* <div className={styles.achievements_description}>
+                <h3>Наші досягнення</h3>
+                <p>
+                    Керівництво компанії “Ваш Ковчег” з перших років незалежності України активно створювало та розвивало ринок нерухомості міста Чернівці. <br />
+                    Відмінною особливістю компанії “Ваш Ковчег” є наявність професійної команди ріелторів , що спираються на власні ресурси в інженерно-технічної, економічної, юридичної, архітектурної сферах.
+                </p>
+            </div> */}
             <ul className={styles.achievements_list}>
                 <li>
                     <div>

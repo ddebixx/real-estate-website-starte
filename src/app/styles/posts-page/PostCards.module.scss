@@ -1,0 +1,74 @@
+.post_container {
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: start;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    // overflow-x: scroll;
+    // overflow-y: hidden;
+    margin: 100px auto;
+}
+
+.posts_header {
+    font-size: 1.5rem;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    height: 350px;  
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.imgContainer img {
+    max-width: 100%;
+    max-height: 250px;
+    border-radius: 4px 4px 0 0;
+}
+
+.author {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .8rem;
+    border-top: 1px solid rgba($color: #000000, $alpha: 0.1);
+    height: 60px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50vw;
+    object-fit: cover;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .post_container {
+        gap: 2rem;
+        height: 350px;
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
+
+    .imgContainer img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .author {
+        width: 100%;
+    }
+}
