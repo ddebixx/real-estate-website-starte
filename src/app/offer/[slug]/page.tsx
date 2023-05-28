@@ -4,7 +4,6 @@ import React from 'react';
 import styles from '../../styles/offers-page/Offer.module.scss';
 import Image from 'next/image';
 import { getOffer } from '../../features/landing-page/utils/getOffer';
-import { getOffers } from '../../features/landing-page/utils/getOffers';
 import KingBedRoundedIcon from '@mui/icons-material/KingBedRounded';
 import BathtubRoundedIcon from '@mui/icons-material/BathtubRounded';
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
@@ -16,7 +15,6 @@ export default async function OfferPage({
 }) {
 
     const { offer } = await getOffer(params.slug)
-    const { offers } = await getOffers()
 
     return (
         <>

@@ -1,12 +1,28 @@
+"use client"
+
 import React from 'react';
 import styles from '../styles/offers-page/Offers.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getOffers } from '../features/landing-page/utils/getOffers';
+import { notFound, useSearchParams } from 'next/navigation';
+import dynamic from 'next/dynamic';
+
+const Pagination = dynamic(() => import("../features/landing-page/pagination/Pagination"), {
+    loading: () => <p>...</p>,
+});
 
 export const Offers = async () => {
 
-    const { offers } = await getOffers()
+    const searchParams = useSearchParams();
+    const page = Number(searchParams.get('page') ?? 1);
+    const { offers } = await getOffers(page);
+    const pageCount = offers.offersConnection.aggregate.count / 2;
+    const pathName = '/offers-page';
+
+    if (!pageCount) {
+        notFound();
+    }
 
     return (
         <>
@@ -39,6 +55,7 @@ export const Offers = async () => {
                         </div>
                     </div>
                 )}
+                <Pagination page={page} pageCount={pageCount} pathname={pathName} />
             </div>
         </>
     )

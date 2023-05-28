@@ -11,7 +11,7 @@ export type GetPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 
 
 export const GetPostsDocument = gql`
     query GetPosts {
-  posts {
+  posts(orderBy: postPublishDate_DESC) {
     id
     postPublishDate
     postTitle

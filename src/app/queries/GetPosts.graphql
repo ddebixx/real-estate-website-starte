@@ -1,5 +1,5 @@
 query GetPosts {
-  posts {
+  posts(orderBy: postPublishDate_DESC) {
     id
     postPublishDate
     postTitle
