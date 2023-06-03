@@ -1,5 +1,5 @@
-query GetPosts {
-  posts(orderBy: postPublishDate_DESC) {
+query GetPosts($skip: Int!) {
+  posts(orderBy: publishedAt_DESC, first: 3, skip: $skip) {
     id
     postPublishDate
     postTitle
@@ -12,6 +12,24 @@ query GetPosts {
       authorPhoto {
         url
       }
+    }
+  }
+postsConnection {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      endCursor
+      pageSize
+      startCursor
+    }
+    edges {
+      cursor
+      node {
+        id
+      }
+    }
+    aggregate {
+      count
     }
   }
 }

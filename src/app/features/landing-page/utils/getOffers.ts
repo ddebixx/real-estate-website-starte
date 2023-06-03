@@ -7,6 +7,7 @@ export const getOffers = async (page: number) => {
     const { data: offers } = await client.query<GetOffersQuery>({
         query: GetOffersDocument, variables: {
             skip: (page - 1) * 2,
+            estateType: "apartment"
         }
     })
 

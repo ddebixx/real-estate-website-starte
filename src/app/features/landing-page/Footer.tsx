@@ -12,7 +12,7 @@ export const Footer = () => {
 
     const getCurrentYear = () => {
         return new Date().getFullYear();
-    } 
+    }
 
     return (
         <>
@@ -46,7 +46,7 @@ export const Footer = () => {
                             <li>
                                 <Link href="mailto:example@example.com">
                                     <EmailRoundedIcon className={styles.contact_icon} />
-                                    <span> Send Email</span>
+                                    <span> Електронна пошта </span>
                                 </Link>
                             </li>
                             <li>
@@ -67,7 +67,9 @@ export const Footer = () => {
                         <h4>Дописи та поради:</h4>
                         <ul>
                             <li>
-                                <Link href="">Дописи</Link>
+                                <Link href="/posts-page/">
+                                    Статті
+                                </Link>
                             </li>
                             <li>
                                 <Link href="">Поради для покупців</Link>

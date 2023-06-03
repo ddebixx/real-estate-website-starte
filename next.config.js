@@ -12,7 +12,7 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'media.graphassets.com',
+        hostname: 'media.graphassets.com',  
         port: '',
         pathname: '**',
       },

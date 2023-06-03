@@ -20,9 +20,9 @@ export default async function OfferPage({
         <>
             <div className="flex flex-row h-full items-center justify-evenly mt-20 gap-10 max-w-[1200px] mx-auto max-lg:flex-col max-lg:px-0 my-16">
                 <div className="flex flex-col gap-6 max-lg:flex-row max-lg:overflow-scroll max-lg:overflow-y-hidden max-lg:snap-x max-lg:px-16 max-lg:w-[85vw]">
-                    {Object.entries(offer.offer.coverPhoto).map(([key, value]) => (
-                        <Image key={key} src={value.url} alt="" width={600} height={2000} className="object-cover rounded-sm max-lg:snap-center max-lg:shrink-0" />
-                    ), [])}
+                    {offer.offer.coverPhoto.map((photo) => (
+                            <Image key={photo.url} src={photo.url} alt="" width={600} height={2000}/>
+                    ))}
                 </div>
                 <div className={styles.offer_info}>
                     <h2 className="text-black font-bold text-2xl tracking-wider max-lg:self-center">
@@ -37,9 +37,12 @@ export default async function OfferPage({
                         <p className="text-black text-bold text-xl">{offer.offer.price} $</p>
                     </div>
                     <div className={styles.flat_info}>
-                        {Object.entries(offer.offer.flatInfo).map(([key, value]) => (
+                        {/* {Object.entries(offer.offer.flatInfo).map(([key, value]) => (
                             <p key={key}><CheckRoundedIcon className="color-[#163172] text-lg" /> {value}</p>
-                        ), [])}
+                        ), [])} */}
+                        {offer.offer.flatInfo.map((info) => (
+                            <p key={info}><CheckRoundedIcon className="color-[#163172] text-lg" /> {info}</p>
+                        ))}
                     </div>
                     <div className="text-black/70 font-regular mb-6 text-lg max-lg:self-center" dangerouslySetInnerHTML={{ __html: offer.offer.flatDescription.html }}></div>
                     <div className={styles.publisher_info}>

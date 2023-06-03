@@ -5,15 +5,21 @@ import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
 export type GetOffersQueryVariables = Types.Exact<{
   skip: Types.Scalars['Int'];
+  estateType: Types.Scalars['String'];
 }>;
 
 
-export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?: 'Offer', address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatTitle: string, flatArea: string, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, flatDescription: { __typename?: 'RichText', html: string }, coverPhoto: Array<{ __typename?: 'Asset', url: string }> }>, offersConnection: { __typename?: 'OfferConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, endCursor?: string | null, pageSize?: number | null, startCursor?: string | null }, edges: Array<{ __typename?: 'OfferEdge', node: { __typename?: 'Offer', address: string, id: string } }>, aggregate: { __typename?: 'Aggregate', count: number } } };
+export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?: 'Offer', estateType: string, address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatTitle: string, flatArea: string, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, flatDescription: { __typename?: 'RichText', html: string }, coverPhoto: Array<{ __typename?: 'Asset', url: string }> }>, offersConnection: { __typename?: 'OfferConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, endCursor?: string | null, pageSize?: number | null, startCursor?: string | null }, edges: Array<{ __typename?: 'OfferEdge', node: { __typename?: 'Offer', address: string, id: string } }>, aggregate: { __typename?: 'Aggregate', count: number } } };
 
 
 export const GetOffersDocument = gql`
-    query GetOffers($skip: Int!) {
-  offers(orderBy: datePublished_DESC, first: 2, skip: $skip) {
+    query GetOffers($skip: Int!, $estateType: String!) {
+  offers(
+    where: {estateType: $estateType}
+    orderBy: datePublished_DESC
+    first: 2
+    skip: $skip
+  ) {
     author {
       id
       authorName
@@ -21,6 +27,7 @@ export const GetOffersDocument = gql`
         url
       }
     }
+    estateType
     address
     bedrooms
     bathrooms
@@ -73,6 +80,7 @@ export const GetOffersDocument = gql`
  * const { data, loading, error } = useGetOffersQuery({
  *   variables: {
  *      skip: // value for 'skip'
+ *      estateType: // value for 'estateType'
  *   },
  * });
  */

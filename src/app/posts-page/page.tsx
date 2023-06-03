@@ -1,4 +1,4 @@
-import { Posts } from "../features/landing-page/Posts";
+import { Posts } from "./Posts";
 
 
 export default function PostPage() {

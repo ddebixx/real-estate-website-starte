@@ -13,7 +13,6 @@ const Pagination = dynamic(() => import("../features/landing-page/pagination/Pag
 });
 
 export const Offers = async () => {
-
     const searchParams = useSearchParams();
     const page = Number(searchParams.get('page') ?? 1);
     const { offers } = await getOffers(page);
@@ -23,6 +22,8 @@ export const Offers = async () => {
     if (!pageCount) {
         notFound();
     }
+
+    console.log(page)
 
     return (
         <>
@@ -55,8 +56,8 @@ export const Offers = async () => {
                         </div>
                     </div>
                 )}
-                <Pagination page={page} pageCount={pageCount} pathname={pathName} />
             </div>
+            <Pagination page={page} pageCount={pageCount} pathname={pathName} />
         </>
     )
 }
