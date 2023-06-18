@@ -24,8 +24,6 @@ export const Posts = async () => {
         notFound();
     }
 
-    console.log(page)
-
     return (
         <>
             <div className={styles.post_container}>

@@ -23,22 +23,22 @@ export const Carousel = () => {
                 className={styles.swiper}
             >
                 <SwiperSlide className={styles.swiper_slide}>
-                    <Image src="" alt="" width={2000} height={700}/>
+                    <Image src="/" alt="" width={2000} height={700}/>
                 </SwiperSlide>
                 <SwiperSlide className={styles.swiper_slide}>
-                    <Image src="" alt="" width={2000} height={700}/>
+                    <Image src="/" alt="" width={2000} height={700}/>
                 </SwiperSlide>
                 <SwiperSlide className={styles.swiper_slide}>
-                    <Image src="" alt="" width={2000} height={700}/>
+                    <Image src="/" alt="" width={2000} height={700}/>
                 </SwiperSlide>
                 <SwiperSlide className={styles.swiper_slide}>
-                    <Image src="" alt="" width={2000} height={700}/>
+                    <Image src="/" alt="" width={2000} height={700}/>
                 </SwiperSlide>
                 <SwiperSlide className={styles.swiper_slide}>
-                    <Image src="" alt="" width={2000} height={700}/>
+                    <Image src="/" alt="" width={2000} height={700}/>
                 </SwiperSlide>
                 <SwiperSlide className={styles.swiper_slide}>
-                    <Image src="" alt="" width={2000} height={700}/>
+                    <Image src="/" alt="" width={2000} height={700}/>
                 </SwiperSlide>
             </Swiper>
         </>

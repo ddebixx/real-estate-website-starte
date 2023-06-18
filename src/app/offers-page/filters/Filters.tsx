@@ -1,12 +1,32 @@
 "use client";
 
-import React, { useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
 import styles from "../../styles/offers-page/filters/Filters.module.scss"
 import * as Checkbox from '@radix-ui/react-checkbox';
+import { useForm, useWatch } from "react-hook-form";
+import { Checkboxes } from "../../../components/Checkboxes";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { parseSearchParams } from "../../../utils/utils";
+import { OPTIONS } from "../../features/offers/constants/filters";
+import type { FiltersCheckboxes } from "../../features/offers/types/filters";
 
-export const Filters = () => {
+type Input = FiltersCheckboxes;
+
+type FilterProps = {
+    defaultValues?: Input;
+}
+
+
+export const Filters = ({ defaultValues }: FilterProps) => {
     const [menu, setMenu] = useState(false);
+
+    const { register, control, reset } = useForm<Input>({
+        defaultValues
+    });
+
+    const searchParams = useSearchParams();
+
     return (
         <>
             <div className={styles.filters_container}>
@@ -22,19 +42,13 @@ export const Filters = () => {
                     <form className={styles.filters}>
                         <ul className={styles.checkbox_wrapper}>
                             <li className={styles.checkbox_container}>
-                                <Checkbox.Root
-                                    className="shadow-[0_0_5px_rgba(0,0,0,0.1)] w-full font-medium bg-white p-2 text-[#163172] rounded data-[state=checked]:text-white data-[state=checked]:bg-[#163172] transition-all duration-200 ease-in-out"
-                                    id="flat">
-                                    <label className="cursor-pointer" htmlFor="flat">
-                                        Квартира
-                                    </label>
-                                </Checkbox.Root>
+                                <Checkboxes name="filters" control={control} options={OPTIONS} />
                             </li>
-                            <li className={styles.checkbox_container}>
+                            {/* <li className={styles.checkbox_container}>
                                 <Checkbox.Root
                                     className="shadow-[0_0_5px_rgba(0,0,0,0.1)] w-full font-medium bg-white p-2 text-[#163172] rounded data-[state=checked]:text-white data-[state=checked]:bg-[#163172] transition-all duration-200 ease-in-out"
-                                    id="ground">
-                                    <label className="cursor-pointer" htmlFor="ground">
+                                    id="land">
+                                    <label className="cursor-pointer" htmlFor="land">
                                         Земля
                                     </label>
                                 </Checkbox.Root>
@@ -65,7 +79,7 @@ export const Filters = () => {
                                         Комерційна нерухомість
                                     </label>
                                 </Checkbox.Root>
-                            </li>
+                            </li> */}
                         </ul>
                         <ul className={styles.property_filters}>
                             <li className={styles.property_options}>

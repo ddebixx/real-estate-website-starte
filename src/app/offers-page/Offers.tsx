@@ -12,18 +12,20 @@ const Pagination = dynamic(() => import("../features/landing-page/pagination/Pag
     loading: () => <p>...</p>,
 });
 
-export const Offers = async () => {
+type OffersProps = {
+    estateTypes: string[]
+}
+
+export const Offers = async ({ estateTypes }: OffersProps) => {
     const searchParams = useSearchParams();
     const page = Number(searchParams.get('page') ?? 1);
-    const { offers } = await getOffers(page);
+    const { offers } = await getOffers(page, estateTypes);
     const pageCount = offers.offersConnection.aggregate.count / 2;
     const pathName = '/offers-page';
 
     if (!pageCount) {
         notFound();
     }
-
-    console.log(page)
 
     return (
         <>

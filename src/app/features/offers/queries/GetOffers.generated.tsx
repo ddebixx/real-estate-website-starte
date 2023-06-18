@@ -1,11 +1,11 @@
-import * as Types from '../../types';
+import * as Types from '../../../../types';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
 export type GetOffersQueryVariables = Types.Exact<{
   skip: Types.Scalars['Int'];
-  estateType: Types.Scalars['String'];
+  estateTypeIn?: Types.InputMaybe<Array<Types.InputMaybe<Types.Scalars['String']>> | Types.InputMaybe<Types.Scalars['String']>>;
 }>;
 
 
@@ -13,9 +13,9 @@ export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?
 
 
 export const GetOffersDocument = gql`
-    query GetOffers($skip: Int!, $estateType: String!) {
+    query GetOffers($skip: Int!, $estateTypeIn: [String]) {
   offers(
-    where: {estateType: $estateType}
+    where: {estateType_in: $estateTypeIn}
     orderBy: datePublished_DESC
     first: 2
     skip: $skip
@@ -80,7 +80,7 @@ export const GetOffersDocument = gql`
  * const { data, loading, error } = useGetOffersQuery({
  *   variables: {
  *      skip: // value for 'skip'
- *      estateType: // value for 'estateType'
+ *      estateTypeIn: // value for 'estateTypeIn'
  *   },
  * });
  */

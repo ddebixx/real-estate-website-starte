@@ -1,5 +1,5 @@
-query GetOffers($skip: Int! $estateType: String!) {
-  offers(where: {estateType: $estateType} orderBy: datePublished_DESC, first: 2, skip: $skip) {
+query GetOffers($skip: Int!, $estateTypeIn: [String]) {
+  offers(where: {estateType_in: $estateTypeIn} orderBy: datePublished_DESC, first: 2, skip: $skip) {
     author {
       id
       authorName
