@@ -1,6 +1,6 @@
 "use client";
 
-import { InputHTMLAttributes, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { Control, useController } from "react-hook-form";
 
 import * as Checkbox from '@radix-ui/react-checkbox';

@@ -13,13 +13,14 @@ const Pagination = dynamic(() => import("../features/landing-page/pagination/Pag
 });
 
 type OffersProps = {
-    estateTypes: string[]
+    estateTypes: string[],
+    districtName: string[];
 }
 
-export const Offers = async ({ estateTypes }: OffersProps) => {
+export const Offers = async ({ estateTypes, districtName }: OffersProps) => {
     const searchParams = useSearchParams();
     const page = Number(searchParams.get('page') ?? 1);
-    const { offers } = await getOffers(page, estateTypes);
+    const { offers } = await getOffers(page, estateTypes, districtName);
     const pageCount = offers.offersConnection.aggregate.count / 2;
     const pathName = '/offers-page';
 
@@ -34,7 +35,7 @@ export const Offers = async ({ estateTypes }: OffersProps) => {
                     <div key={offers.id} className={styles.post_container}>
                         <div className={styles.offer_labels}>
                             <Link href={`/offer/${offers.offerSlug}`}>
-                                <Image src={offers.coverPhoto[0].url} alt="" width={2000} height={2000} />
+                                <Image src={offers.coverPhoto.url} alt="" width={2000} height={2000} />
                                 <p className={styles.price}>{offers.price} $</p>
                                 <p className={styles.label}>{offers.label}</p>
                             </Link>

@@ -6,16 +6,17 @@ const defaultOptions = {} as const;
 export type GetOffersQueryVariables = Types.Exact<{
   skip: Types.Scalars['Int'];
   estateTypeIn?: Types.InputMaybe<Array<Types.InputMaybe<Types.Scalars['String']>> | Types.InputMaybe<Types.Scalars['String']>>;
+  disrictTypeIn?: Types.InputMaybe<Array<Types.InputMaybe<Types.Scalars['String']>> | Types.InputMaybe<Types.Scalars['String']>>;
 }>;
 
 
-export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?: 'Offer', estateType: string, address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatTitle: string, flatArea: string, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, flatDescription: { __typename?: 'RichText', html: string }, coverPhoto: Array<{ __typename?: 'Asset', url: string }> }>, offersConnection: { __typename?: 'OfferConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, endCursor?: string | null, pageSize?: number | null, startCursor?: string | null }, edges: Array<{ __typename?: 'OfferEdge', node: { __typename?: 'Offer', address: string, id: string } }>, aggregate: { __typename?: 'Aggregate', count: number } } };
+export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?: 'Offer', estateType: string, address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatTitle: string, flatArea: string, district?: string | null, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, flatDescription: { __typename?: 'RichText', html: string }, coverPhoto: { __typename?: 'Asset', url: string } }>, offersConnection: { __typename?: 'OfferConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, endCursor?: string | null, pageSize?: number | null, startCursor?: string | null }, edges: Array<{ __typename?: 'OfferEdge', node: { __typename?: 'Offer', address: string, id: string } }>, aggregate: { __typename?: 'Aggregate', count: number } } };
 
 
 export const GetOffersDocument = gql`
-    query GetOffers($skip: Int!, $estateTypeIn: [String]) {
+    query GetOffers($skip: Int!, $estateTypeIn: [String], $disrictTypeIn: [String]) {
   offers(
-    where: {estateType_in: $estateTypeIn}
+    where: {estateType_in: $estateTypeIn, district_in: $disrictTypeIn}
     orderBy: datePublished_DESC
     first: 2
     skip: $skip
@@ -36,6 +37,7 @@ export const GetOffersDocument = gql`
     flatInfo
     flatTitle
     flatArea
+    district
     flatDescription {
       html
     }
@@ -81,6 +83,7 @@ export const GetOffersDocument = gql`
  *   variables: {
  *      skip: // value for 'skip'
  *      estateTypeIn: // value for 'estateTypeIn'
+ *      disrictTypeIn: // value for 'disrictTypeIn'
  *   },
  * });
  */

@@ -2,10 +2,7 @@
 
 import React from 'react';
 import { Offers } from './Offers';
-import { InferGetServerSidePropsType } from 'next';
-import { Filters } from './filters/Filters';
-import { getOffers } from '../features/landing-page/utils/getOffers';
-import { OPTIONS } from '../features/offers/constants/filters';
+import { FiltersComponent } from './filters/FiltersComponent';
 import type { FiltersCheckboxes } from '../features/offers/types/filters';
 
 
@@ -18,11 +15,10 @@ export default async function Page({ searchParams }: PageProps) {
     .filter(([key, value]) => value === 'true')
     .map(([key]) => key);
 
-
     return (
         <>
-            <Filters defaultValues={searchParams} />
-            <Offers estateTypes={estateTypes} />
+            <FiltersComponent defaultValues={searchParams} />
+            <Offers estateTypes={estateTypes} districtName={estateTypes}/>
         </>
     )
 }

@@ -21,7 +21,7 @@ query GetOffer($offerSlug: String!) {
     price
     id
     offerSlug
-    coverPhoto {
+    offerPhotos {
       url
     }
   }

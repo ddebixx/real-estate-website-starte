@@ -16,3 +16,10 @@ export const OPTIONS = [
       label: "Комерційна нерухомість"
   }
 ] as const;
+
+export const FILTERS = [
+    {
+        value: "prospect",
+        label: "Проспект"
+    }
+ ] as const;

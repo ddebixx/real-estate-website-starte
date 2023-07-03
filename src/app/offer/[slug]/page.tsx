@@ -20,7 +20,7 @@ export default async function OfferPage({
         <>
             <div className="flex flex-row h-full items-center justify-evenly mt-20 gap-10 max-w-[1200px] mx-auto max-lg:flex-col max-lg:px-0 my-16">
                 <div className="flex flex-col gap-6 max-lg:flex-row max-lg:overflow-scroll max-lg:overflow-y-hidden max-lg:snap-x max-lg:px-16 max-lg:w-[85vw]">
-                    {offer.offer.coverPhoto.map((photo) => (
+                    {offer.offer.offerPhotos.map((photo) => (
                             <Image key={photo.url} src={photo.url} alt="" width={600} height={2000}/>
                     ))}
                 </div>
@@ -37,9 +37,6 @@ export default async function OfferPage({
                         <p className="text-black text-bold text-xl">{offer.offer.price} $</p>
                     </div>
                     <div className={styles.flat_info}>
-                        {/* {Object.entries(offer.offer.flatInfo).map(([key, value]) => (
-                            <p key={key}><CheckRoundedIcon className="color-[#163172] text-lg" /> {value}</p>
-                        ), [])} */}
                         {offer.offer.flatInfo.map((info) => (
                             <p key={info}><CheckRoundedIcon className="color-[#163172] text-lg" /> {info}</p>
                         ))}
