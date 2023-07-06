@@ -3,16 +3,16 @@
 import React from 'react';
 import { Offers } from './Offers';
 import { FiltersComponent } from './filters/FiltersComponent';
-import type { FiltersCheckboxes } from '../features/offers/types/filters';
+import type { OptionSelect, FiltersCheckboxes } from '../features/offers/types/filters';
 
 
 type PageProps = {
-    searchParams: FiltersCheckboxes;
+    searchParams: FiltersCheckboxes & OptionSelect;
 }
 
 export default async function Page({ searchParams }: PageProps) {
    const estateTypes  = Object.entries(searchParams)
-    .filter(([key, value]) => value === 'true')
+    .filter(([value]) => value === 'true')
     .map(([key]) => key);
 
     return (

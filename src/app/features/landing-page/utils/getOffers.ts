@@ -8,7 +8,7 @@ export const getOffers = async (page: number, estateTypes: string[], districtNam
         query: GetOffersDocument, variables: {
             skip: (page - 1) * 2,
             estateTypeIn: estateTypes.length === 0 ? ["apartment", "land", "house", "commercial"] : estateTypes,
-            disrictTypeIn: districtName.length === 0 ? ["prospect", "downtown", "sleeping"]: districtName,
+            disrictTypeIn: districtName.length === 0 ? ["prospect", "downTown", "sleeping"]: districtName,
         }
     })
 

@@ -1,25 +1,37 @@
-export const OPTIONS = [
-  {
-      value: "apartment",
-      label: "Квартира"
-  },
-  {
-      value: "house",
-      label: "Будинок"
-  },
-  {
-      value: "land",
-      label: "Земля"
-  },
-  {
-      value: "commercial",
-      label: "Комерційна нерухомість"
-  }
+export const CHECKBOXES = [
+    {
+        value: "apartment",
+        label: "Квартира"
+    },
+    {
+        value: "house",
+        label: "Будинок"
+    },
+    {
+        value: "land",
+        label: "Земля"
+    },
+    {
+        value: "commercial",
+        label: "Комерційна нерухомість"
+    },
+    {
+        value: "rent",
+        label: "Оренда"
+    }
 ] as const;
 
-export const FILTERS = [
+export const SELECTORS = [
     {
-        value: "prospect",
-        label: "Проспект"
-    }
- ] as const;
+        value: "district",
+        label: "Район"
+    },
+    {
+        value: "country",
+        label: "Країна"
+    },
+    {
+        value: "city",
+        label: "Місто"
+    },
+] as const;
