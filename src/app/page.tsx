@@ -2,6 +2,7 @@ import styles from './styles/landing-page/Home.module.scss'
 import React from 'react'
 import { HeroSection } from './features/landing-page/HeroSection'
 import { Carousel } from './features/landing-page/carousel/Carousel'
+import { Offers } from './offers-page/Offers'
 
 export default async function Home() {
 

@@ -3,15 +3,11 @@
 import React from 'react';
 import { Offers } from './Offers';
 import { FiltersComponent } from './filters/FiltersComponent';
-<<<<<<< HEAD
-import type { FiltersCheckboxes, DistrictOptionSelect, PriceToSelect, PriceFromSelect } from '../features/offers/types/filters';
+import type { FiltersCheckboxes, DistrictOptionSelect } from '../features/offers/types/filters';
 
 
 type PageProps = {
-    searchParams: FiltersCheckboxes &
-    DistrictOptionSelect &
-    PriceToSelect &
-    PriceFromSelect;
+    searchParams: FiltersCheckboxes & DistrictOptionSelect;
 }
 
 export default async function Page({ searchParams }: PageProps) {
@@ -20,22 +16,21 @@ export default async function Page({ searchParams }: PageProps) {
         .map(([key]) => key);
 
     const districtName = Object.entries(searchParams)
-        .filter(([key, value]) => value === 'true')
+        .filter(([key, value]) => value === typeof "string")
         .map(([key]) => key);
 
-=======
-import type { OptionSelect, FiltersCheckboxes } from '../features/offers/types/filters';
+    const filters = Object.entries(searchParams).map(([key, value]) => {
+        if (value === "true") {
+            return [key, true]
+        }
 
+        if (value === "false") {
+            return [key, false]
+        }
 
-type PageProps = {
-    searchParams: FiltersCheckboxes & OptionSelect;
-}
+        return [key, value]
+    })
 
-export default async function Page({ searchParams }: PageProps) {
-   const estateTypes  = Object.entries(searchParams)
-    .filter(([value]) => value === 'true')
-    .map(([key]) => key);
->>>>>>> 3b382cc4f61f07cf8e144bc580e9b27d355d9b0d
 
     return (
         <>

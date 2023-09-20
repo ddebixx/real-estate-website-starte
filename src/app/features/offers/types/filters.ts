@@ -5,7 +5,7 @@ type DistrcitOptionSelectKey = typeof DISCTRICT_SELECTORS[number]['value'];
 type PriceFromOptionSelectKey = typeof PRICE_FROM[number]['value'];
 
 export type FiltersCheckboxes = Record<OptionKey, boolean>
-export type DistrictOptionSelect = Record<DistrcitOptionSelectKey, boolean>
+export type DistrictOptionSelect = Record<DistrcitOptionSelectKey, string>
 export type PriceFromSelect = Record<PriceFromOptionSelectKey, boolean>
 
 

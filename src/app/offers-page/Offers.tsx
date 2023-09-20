@@ -1,5 +1,3 @@
-"use client"
-
 import React from 'react';
 import styles from '../styles/offers-page/Offers.module.scss';
 import Image from 'next/image';

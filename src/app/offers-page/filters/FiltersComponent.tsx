@@ -4,31 +4,20 @@ import { useState } from "react"
 import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
 import styles from "../../styles/offers-page/filters/Filters.module.scss"
 import { useForm } from "react-hook-form";
-<<<<<<< HEAD
-import { Checkboxes } from "./Checkboxes";
+import { Checkbox } from "../../components/Checkbox";
 import {
-    DISCTRICT_SELECTORS, 
-    CHECKBOXES, 
-    PRICE_FROM,
-    PRICE_TO 
+    DISCTRICT_SELECTORS,
+    CHECKBOXES
 } from "../../features/offers/constants/filters";
 import type { FiltersCheckboxes, DistrictOptionSelect } from "../../features/offers/types/filters";
-import { OptionSelectModule } from "./OptionSelectModule";
-import { PriceFromSelectModule } from "./PriceFromSelectModule";
-import { PriceToSelectModule } from "./PriceToSelectModule";
+import { Select } from "../../components/Select";
+import { SelectProps } from "@radix-ui/react-select";
+import type { CheckedState } from "@radix-ui/react-checkbox";
+import { useSetSearchParams } from "../../../hooks/use-params";
 
-type Input = FiltersCheckboxes & DistrictOptionSelect;
-;
-=======
-import { Checkboxes } from "../../../components/Checkboxes";
-import { SELECTORS, OPTIONS, CHECKBOXES } from "../../features/offers/constants/filters";
-import type { FiltersCheckboxes, OptionSelect } from "../../features/offers/types/filters";
-import { OptionSelectModule } from "./OptionSelectModule";
-
-type Input = {
-    filters: FiltersCheckboxes & OptionSelect;
+type Input = FiltersCheckboxes & DistrictOptionSelect & {
+    district: string;
 };
->>>>>>> 3b382cc4f61f07cf8e144bc580e9b27d355d9b0d
 
 type FilterProps = {
     defaultValues: Input;
@@ -38,9 +27,19 @@ type FilterProps = {
 export const FiltersComponent = ({ defaultValues }: FilterProps) => {
     const [menu, setMenu] = useState(false);
 
+    const { setSearchParams } = useSetSearchParams();
+
     const { control } = useForm<Input>({
         defaultValues
     });
+
+    const onCheckedChange = (checked: CheckedState, name: keyof Input) => {
+        setSearchParams(name, typeof checked === "boolean" ? checked.toString() : "false");
+    };
+
+    const onSelectChange = (value: SelectProps["value"], name: keyof Input) => {
+        setSearchParams(name, value);
+    };
 
 
     return (
@@ -58,22 +57,17 @@ export const FiltersComponent = ({ defaultValues }: FilterProps) => {
                     <form className={styles.filters}>
                         <ul className={styles.checkbox_wrapper}>
                             <li className={styles.checkbox_container}>
-<<<<<<< HEAD
-                                <Checkboxes name="propertyTypeCheckboxes" control={control} options={ CHECKBOXES } />
+                                {CHECKBOXES.map(checkbox => (
+                                    <Checkbox name="filters" onCheckedChange={(checked) => onCheckedChange(checked, checkbox.value)} {...checkbox} />
+                                ))}
                             </li>
                         </ul>
-                        <OptionSelectModule name="selectDistrict" control={control} options={ DISCTRICT_SELECTORS } />
-                        <PriceFromSelectModule name="selectPriceFrom" control={control} options={ PRICE_FROM } />
-                        <PriceToSelectModule name="selectPriceTo" control={control} options={ PRICE_TO } />
-=======
-                                <Checkboxes name="filters" control={control} options={ CHECKBOXES } />
+                        <ul className="flex">
+                            <li>
+                                <Select className="flex" name="district" options={DISCTRICT_SELECTORS} onValueChange={(value) => onSelectChange(value, "district")} />
+                                {/* <Select className="flex" name="district" options={DISCTRICT_SELECTORS} onValueChange={(value) => onSelectChange(value, "district")} /> */}
                             </li>
                         </ul>
-                        <OptionSelectModule name="select" control={control} options={ SELECTORS } />
->>>>>>> 3b382cc4f61f07cf8e144bc580e9b27d355d9b0d
-                        <button className={styles.search_button}>
-                            Пошук
-                        </button>
                     </form>
                 </div>
             </div>

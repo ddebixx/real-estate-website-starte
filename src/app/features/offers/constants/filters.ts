@@ -21,21 +21,14 @@ export const CHECKBOXES = [
     }
 ] as const;
 
-export const SELECTORS = [
-    {
-        value: "district",
-        label: "Район"
-    },
-    {
-        value: "country",
-        label: "Країна"
-    },
-] as const;
-
 export const DISCTRICT_SELECTORS = [
     {
         value: "prospect",
         label: "Проспект"
+    },
+    {
+        value: "downTown",
+        label: "Центр"
     }
  ] as const;
 
@@ -65,4 +58,4 @@ export const PRICE_FROM = [
         label: "2000$"
     },
 
-] as const;
+];
