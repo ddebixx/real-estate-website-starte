@@ -3,10 +3,10 @@
 import React from 'react';
 import styles from '../../styles/offers-page/Offer.module.scss';
 import Image from 'next/image';
-import { getOffer } from '../../features/landing-page/utils/getOffer';
 import KingBedRoundedIcon from '@mui/icons-material/KingBedRounded';
 import BathtubRoundedIcon from '@mui/icons-material/BathtubRounded';
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
+import { getOffer } from '../../utils/getOffer';
 
 export default async function OfferPage({
     params,

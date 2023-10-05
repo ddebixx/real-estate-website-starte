@@ -29,6 +29,14 @@ export const DISCTRICT_SELECTORS = [
     {
         value: "downTown",
         label: "Центр"
+    },
+    {
+        value: "aeroport",
+        label: "Аеропорт"
+    },
+    {
+        value: "soborna",
+        label: "Соборна площа"
     }
  ] as const;
 

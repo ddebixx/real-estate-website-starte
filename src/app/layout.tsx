@@ -1,7 +1,7 @@
 import { Poppins } from 'next/font/google'
-import { Navbar } from './features/landing-page/Navbar'
+import { Navbar } from './components/Navbar'
 import './globals.css'
-import { Footer } from './features/landing-page/Footer'
+import { Footer } from './components/Footer'
 
 export const metadata = {
   title: 'kovcheg',

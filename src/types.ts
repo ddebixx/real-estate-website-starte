@@ -5648,7 +5648,7 @@ export enum _SystemDateTimeFieldVariation {
 export type GetOffersQueryVariables = Exact<{
   skip: Scalars['Int'];
   estateTypeIn?: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
-  disrictTypeIn?: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
+  districtTypeIn?: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
 }>;
 
 

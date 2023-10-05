@@ -6,7 +6,7 @@ const defaultOptions = {} as const;
 export type GetOffersQueryVariables = Types.Exact<{
   skip: Types.Scalars['Int'];
   estateTypeIn?: Types.InputMaybe<Array<Types.InputMaybe<Types.Scalars['String']>> | Types.InputMaybe<Types.Scalars['String']>>;
-  disrictTypeIn?: Types.InputMaybe<Array<Types.InputMaybe<Types.Scalars['String']>> | Types.InputMaybe<Types.Scalars['String']>>;
+  districtTypeIn?: Types.InputMaybe<Array<Types.InputMaybe<Types.Scalars['String']>> | Types.InputMaybe<Types.Scalars['String']>>;
 }>;
 
 
@@ -14,9 +14,9 @@ export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?
 
 
 export const GetOffersDocument = gql`
-    query GetOffers($skip: Int!, $estateTypeIn: [String], $disrictTypeIn: [String]) {
+    query GetOffers($skip: Int!, $estateTypeIn: [String], $districtTypeIn: [String]) {
   offers(
-    where: {estateType_in: $estateTypeIn, district_in: $disrictTypeIn}
+    where: {estateType_in: $estateTypeIn, district_in: $districtTypeIn}
     orderBy: datePublished_DESC
     first: 2
     skip: $skip
@@ -83,7 +83,7 @@ export const GetOffersDocument = gql`
  *   variables: {
  *      skip: // value for 'skip'
  *      estateTypeIn: // value for 'estateTypeIn'
- *      disrictTypeIn: // value for 'disrictTypeIn'
+ *      districtTypeIn: // value for 'districtTypeIn'
  *   },
  * });
  */

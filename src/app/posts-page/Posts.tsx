@@ -3,10 +3,10 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getPosts } from '../features/landing-page/utils/getPosts';
 import styles from '../styles/posts-page/Post.module.scss';
 import { notFound, useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
+import { getPosts } from '../utils/getPosts';
 
 const PostsPagination = dynamic(() => import("../posts-page/posts-pagination/PostsPagination"), {
     loading: () => <p>...</p>,

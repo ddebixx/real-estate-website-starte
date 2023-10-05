@@ -28,13 +28,13 @@ export const Select = ({ options, className, onValueChange, name }: OptionSelect
           <RadixSelect.ScrollUpButton className="flex items-center justify-center h-[25px] bg-white text-violet11 cursor-default">
             <ChevronUpIcon />
           </RadixSelect.ScrollUpButton>
-          <RadixSelect.Viewport className="p-[5px] flex">
+          <RadixSelect.Viewport className="p-[5px] flex flex-col-reverse">
             {options.map((option) => (
               <RadixSelect.Item
                 key={option.value}
                 value={option.value}
                 className={clsx(
-                  'text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] pr-[35px] pl-[25px] relative select-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1',
+                  'text-[13px] leading-none rounded-[3px] flex items-center h-[25px] pr-[35px] pl-[25px] relative select-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1',
                   className
                 )}>
                 <RadixSelect.ItemText>{option.label}</RadixSelect.ItemText>

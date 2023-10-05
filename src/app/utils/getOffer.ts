@@ -1,7 +1,6 @@
-import { GetOfferQuery } from "../../../../types"
-import { GetOfferDocument } from "../../../queries/GetOffer.generated"
-import { client } from "../apollo-client"
-
+import { GetOfferQuery } from "../../types"
+import { client } from "../components/landing-page/apollo-client"
+import { GetOfferDocument } from "../queries/GetOffer.generated"
 
 export const getOffer = async (offerSlug:string) => {
     const { data: offer } = await client.query<GetOfferQuery>({

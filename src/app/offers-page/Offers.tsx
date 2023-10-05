@@ -2,11 +2,11 @@ import React from 'react';
 import styles from '../styles/offers-page/Offers.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getOffers } from '../features/landing-page/utils/getOffers';
 import { notFound, useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
+import { getOffers } from '../utils/getOffers';
 
-const Pagination = dynamic(() => import("../features/landing-page/pagination/Pagination"), {
+const Pagination = dynamic(() => import("../components/landing-page/pagination/Pagination"), {
     loading: () => <p>...</p>,
 });
 
