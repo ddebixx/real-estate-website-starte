@@ -91,3 +91,18 @@
 .select_option div:hover {
     background-color: #f1f1f1;
 }
+
+.checkbox_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    gap: 2rem;
+  }
+  
+  .checkbox_container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    cursor: pointer;
+  }

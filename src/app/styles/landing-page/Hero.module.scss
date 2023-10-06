@@ -2,31 +2,31 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
-    padding: 0 2rem;
+    gap: 5rem;
+    padding: 4rem;
     margin-bottom: 2rem;
-    margin-top: 100px;
+    text-align: left;
+    width: 100%;
 }
 
 .hero_container h2 {
-    font-size: 2rem;
-    font-weight: 400;
+    font-size: 2.5rem;
+    font-weight: 500;
     color: var(--main-color);
 }
 
 .service_container {
     display: flex;
-    max-width: 1200px;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
 .service_list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    align-items: flex-start;
-    justify-content: center;
-    gap: 3rem;
+    align-items: start;
+    justify-items: center;
+    gap: 5rem;
     width: 100%;
     flex-wrap: wrap;
     height: 100%;
@@ -36,13 +36,13 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    font-size: 1.2rem;
+    width: 100%;
 }
 
 .service_icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50vw;
-    object-fit: cover;
+    font-size: 5rem;
+    opacity: .9;
     color: var(--main-color);
 }
 
@@ -52,8 +52,9 @@
     align-items: center;
     justify-items: center;
     flex-wrap: wrap;
-    gap: 3rem;
+    gap: 10rem;
     margin-top: 100px;
+    text-align: center;
     text-align: center;
 
     li>div {
@@ -64,16 +65,15 @@
         gap: 1rem;
         font-size: 2.5rem;
         font-weight: 600;
+        text-align: center
     }
-
-    ;
 }
 
 .achievements_icon {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+    font-size: 12rem;
+    z-index: 0;
     color: var(--main-color);
+    opacity: .9;
 }
 
 .achievements_description {
@@ -81,51 +81,142 @@
     flex-direction: column;
     gap: 1rem;
     width: 50%;
+    z-index: 222;
+    text-align: center;
+
+    h3 {
+        font-size: 5rem;
+        font-weight: bold;
+        color: black;
+        text-align: center;
+        z-index: 222;
+        margin: 0;
+    }
+}
+
+.companyHero_list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    justify-items: center;
+    gap: 10rem;
+    margin-top: 100px;
+    text-align: center;
+    text-align: center;
+
+    li {
+        display: flex;
+
+        gap: 2rem;
+    }
+}
+
+.companyHero_icon {
+    font-size: 5rem;
+    z-index: 0;
+    color: var(--main-color);
+    opacity: .9;
+}
+
+.companyHero_description {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    align-self: center;
+    gap: 1rem;
+    text-align: left;
 
     h3 {
         font-size: 2rem;
-        font-weight: 400;
-        color: var(--main-color);
+        font-weight: bold;
+        color: black;
+        z-index: 222;
+        margin: 0;
+    }
+}
+
+
+
+
+@media screen and (max-width: 1024px) {
+    .service_list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .achievements_icon {
+        font-size: 8rem;
+    }
+
+    .companyHero_list {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        align-items: start;
+        justify-items: center;
+        gap: 10rem;
+        margin-top: 100px;
+        text-align: center;
+        text-align: center;
+
+        li {
+            display: flex;
+
+            gap: 2rem;
+        }
     }
 }
 
 @media screen and (max-width: 768px) {
-    .service_list {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-
     .hero_container {
-        gap: 1rem;
+        gap: 2rem;
+        margin-top: 0;
 
         .service_icon {
-            width: 40px;
-            height: 40px;
+            font-size: 7rem;
         }
 
-        .service_item {
-            gap: 0.5rem;
-            font-size: .8rem;
-        }
-        
         .service_list {
-            gap: 1.2rem;
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: scroll;
+            gap: 4rem;
+            align-items: center;
+            justify-content: start;
+
+            .service_item {
+                gap: 1.2rem;
+                flex-direction: column;
+                align-items: center;
+                justify-items: center;
+                text-align: center;
+
+                p {
+                    width: 300px;
+                    font-size: 1.2rem;
+                }
+            }
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 2rem;
+            text-align: center;
         }
     }
 
     .achievements_list {
-        gap: 2rem;
-        
-        li > div {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .companyHero_list {
+        gap: 4rem;
+
+        li>div {
             font-size: 2rem;
         }
     }
 
-    .achievements_icon {
+    .companyHero_icon {
         width: 75px;
         height: 75px;
     }
@@ -133,12 +224,35 @@
 
 @media screen and (max-width: 480px) {
 
+    .hero_container {
+        padding: 2rem;
+
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+
     .achievements_list {
         font-size: .8rem;
     }
 
     .achievements_icon {
-        width: 50px;
-        height: 50px;
+        font-size: 6rem;
+    }
+
+    .companyHero_list {
+        li {
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
     }
 }

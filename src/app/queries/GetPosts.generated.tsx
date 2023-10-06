@@ -3,15 +3,17 @@ import * as Types from '../../types';
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
-export type GetPostsQueryVariables = Types.Exact<{ [key: string]: never; }>;
+export type GetPostsQueryVariables = Types.Exact<{
+  skip: Types.Scalars['Int'];
+}>;
 
 
-export type GetPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, postPublishDate: any, postTitle: string, postSlug?: string | null, postContent?: { __typename?: 'RichText', html: string } | null, author?: { __typename?: 'Author', authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null }> };
+export type GetPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, postPublishDate: any, postTitle: string, postSlug?: string | null, postContent?: { __typename?: 'RichText', html: string } | null, author?: { __typename?: 'Author', authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null }>, postsConnection: { __typename?: 'PostConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, endCursor?: string | null, pageSize?: number | null, startCursor?: string | null }, edges: Array<{ __typename?: 'PostEdge', cursor: string, node: { __typename?: 'Post', id: string } }>, aggregate: { __typename?: 'Aggregate', count: number } } };
 
 
 export const GetPostsDocument = gql`
-    query GetPosts {
-  posts(orderBy: postPublishDate_DESC) {
+    query GetPosts($skip: Int!) {
+  posts(orderBy: publishedAt_DESC, first: 3, skip: $skip) {
     id
     postPublishDate
     postTitle
@@ -24,6 +26,24 @@ export const GetPostsDocument = gql`
       authorPhoto {
         url
       }
+    }
+  }
+  postsConnection {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      endCursor
+      pageSize
+      startCursor
+    }
+    edges {
+      cursor
+      node {
+        id
+      }
+    }
+    aggregate {
+      count
     }
   }
 }
@@ -41,10 +61,11 @@ export const GetPostsDocument = gql`
  * @example
  * const { data, loading, error } = useGetPostsQuery({
  *   variables: {
+ *      skip: // value for 'skip'
  *   },
  * });
  */
-export function useGetPostsQuery(baseOptions?: Apollo.QueryHookOptions<GetPostsQuery, GetPostsQueryVariables>) {
+export function useGetPostsQuery(baseOptions: Apollo.QueryHookOptions<GetPostsQuery, GetPostsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
         return Apollo.useQuery<GetPostsQuery, GetPostsQueryVariables>(GetPostsDocument, options);
       }

@@ -1,18 +1,28 @@
+"use client"
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getPosts } from './utils/getPosts';
-import styles from '../../styles/posts-page/PostCards.module.scss';
+import styles from '../styles/posts-page/Post.module.scss';
+import { notFound, useSearchParams } from 'next/navigation';
+import dynamic from 'next/dynamic';
+import { getPosts } from '../utils/getPosts';
+
+const PostsPagination = dynamic(() => import("../posts-page/posts-pagination/PostsPagination"), {
+    loading: () => <p>...</p>,
+});
 
 export const Posts = async () => {
 
-    const { posts } = await getPosts()
+    const searchParams = useSearchParams();
+    const page = Number(searchParams.get('page') ?? 1);
+    const { posts } = await getPosts(page)
+    const pageCount = posts.postsConnection.aggregate.count / 2;
+    const pathName = '/posts-page';
 
-    // posts.posts.sort((a, b) => {
-    //     const dateA = new Date(a.postPublishDate);
-    //     const dateB = new Date(b.postPublishDate);
-    //     return dateB - dateA;
-    // });
+    if (!pageCount) {
+        notFound();
+    }
 
     return (
         <>
@@ -35,6 +45,7 @@ export const Posts = async () => {
                     </Link>
                 )}
             </div>
+            <PostsPagination page={page} pageCount={pageCount} pathname={pathName} />
         </>
     )
 }

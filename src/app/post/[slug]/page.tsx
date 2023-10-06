@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { getPost } from "../../features/landing-page/utils/getPost";
 import styles from "../../styles/posts-page/Post.module.scss"
+import { getPost } from "../../utils/getPost";
 
 export default async function PostPage({
     params,

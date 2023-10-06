@@ -1,5 +1,5 @@
-query GetOffers($skip: Int!) {
-  offers(orderBy: datePublished_DESC, first: 2, skip: $skip) {
+query GetOffers($skip: Int!, $estateTypeIn: [String], $districtTypeIn: [String]) {
+  offers(where: {estateType_in: $estateTypeIn, district_in: $districtTypeIn} orderBy: datePublished_DESC, first: 2, skip: $skip) {
     author {
       id
       authorName
@@ -7,6 +7,7 @@ query GetOffers($skip: Int!) {
         url
       }
     }
+    estateType
     address
     bedrooms
     bathrooms
@@ -15,6 +16,7 @@ query GetOffers($skip: Int!) {
     flatInfo
     flatTitle
     flatArea
+    district
     flatDescription {
       html
     }

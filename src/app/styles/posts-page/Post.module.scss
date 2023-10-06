@@ -1,6 +1,6 @@
 .post_container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     justify-content: center;
     gap: 1rem;

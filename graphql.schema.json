@@ -704,6 +704,147 @@
             "deprecationReason": null
           },
           {
+            "name": "offerPhotosOffer",
+            "description": null,
+            "args": [
+              {
+                "name": "after",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "before",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "first",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "forceParentLocale",
+                "description": "Sets the locale of the parent document as the first locale in the fallback locales in the query's subtree.\n\nNote that `offerPhotosOffer` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.\nThe first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.\n\nThis argument will affect any existing locale filtering defined in the query's tree for the subtree.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "last",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "locales",
+                "description": "Allows to optionally override locale filtering behaviour in the query's subtree.\n\nNote that `offerPhotosOffer` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.\nThe first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.\n\nThis argument will overwrite any existing locale filtering defined in the query's tree for the subtree.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "Locale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "orderBy",
+                "description": null,
+                "type": {
+                  "kind": "ENUM",
+                  "name": "OfferOrderByInput",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "skip",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "where",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "OfferWhereInput",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Offer",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "publishedAt",
             "description": "The time the document was published. Null on documents in draft stage.",
             "args": [
@@ -1275,6 +1416,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "offerPhotosOffer",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "OfferCreateManyInlineInput",
               "ofType": null
             },
             "defaultValue": null,
@@ -2071,6 +2224,42 @@
             "deprecationReason": null
           },
           {
+            "name": "offerPhotosOffer_every",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "OfferWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "offerPhotosOffer_none",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "OfferWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "offerPhotosOffer_some",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "OfferWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "publishedAt",
             "description": null,
             "type": {
@@ -2605,6 +2794,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "offerPhotosOffer",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "OfferUpdateManyInlineInput",
               "ofType": null
             },
             "defaultValue": null,
@@ -4485,6 +4686,42 @@
             "type": {
               "kind": "SCALAR",
               "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "offerPhotosOffer_every",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "OfferWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "offerPhotosOffer_none",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "OfferWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "offerPhotosOffer_some",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "OfferWhereInput",
               "ofType": null
             },
             "defaultValue": null,
@@ -15080,59 +15317,11 @@
             "description": null,
             "args": [
               {
-                "name": "after",
-                "description": null,
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "before",
-                "description": null,
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "first",
-                "description": null,
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
                 "name": "forceParentLocale",
                 "description": "Sets the locale of the parent document as the first locale in the fallback locales in the query's subtree.\n\nNote that `coverPhoto` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.\nThe first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.\n\nThis argument will affect any existing locale filtering defined in the query's tree for the subtree.",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "last",
-                "description": null,
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
                   "ofType": null
                 },
                 "defaultValue": null,
@@ -15158,59 +15347,15 @@
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
-              },
-              {
-                "name": "orderBy",
-                "description": null,
-                "type": {
-                  "kind": "ENUM",
-                  "name": "AssetOrderByInput",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "skip",
-                "description": null,
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "where",
-                "description": null,
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "AssetWhereInput",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
               }
             ],
             "type": {
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "Asset",
-                    "ofType": null
-                  }
-                }
+                "kind": "OBJECT",
+                "name": "Asset",
+                "ofType": null
               }
             },
             "isDeprecated": false,
@@ -15311,6 +15456,18 @@
             "deprecationReason": null
           },
           {
+            "name": "district",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "documentInStages",
             "description": "Get the document in other stages",
             "args": [
@@ -15386,6 +15543,22 @@
                     "ofType": null
                   }
                 }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               }
             },
             "isDeprecated": false,
@@ -15642,6 +15815,147 @@
             "deprecationReason": null
           },
           {
+            "name": "offerPhotos",
+            "description": null,
+            "args": [
+              {
+                "name": "after",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "before",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "first",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "forceParentLocale",
+                "description": "Sets the locale of the parent document as the first locale in the fallback locales in the query's subtree.\n\nNote that `offerPhotos` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.\nThe first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.\n\nThis argument will affect any existing locale filtering defined in the query's tree for the subtree.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "last",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "locales",
+                "description": "Allows to optionally override locale filtering behaviour in the query's subtree.\n\nNote that `offerPhotos` will be affected directly by this argument, as well as any other related models with localized fields in the query's subtree.\nThe first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.\n\nThis argument will overwrite any existing locale filtering defined in the query's tree for the subtree.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "Locale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "orderBy",
+                "description": null,
+                "type": {
+                  "kind": "ENUM",
+                  "name": "AssetOrderByInput",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "skip",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "where",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "AssetWhereInput",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Asset",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "offerSlug",
             "description": null,
             "args": [],
@@ -15882,22 +16196,6 @@
               "ofType": {
                 "kind": "ENUM",
                 "name": "Stage",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
                 "ofType": null
               }
             },
@@ -16174,7 +16472,7 @@
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "AssetCreateManyInlineInput",
+                "name": "AssetCreateOneInlineInput",
                 "ofType": null
               }
             },
@@ -16203,6 +16501,34 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "Date",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               }
             },
@@ -16303,6 +16629,22 @@
             "deprecationReason": null
           },
           {
+            "name": "offerPhotos",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "INPUT_OBJECT",
+                "name": "AssetCreateManyInlineInput",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "offerSlug",
             "description": null,
             "type": {
@@ -16323,22 +16665,6 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "Float",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
                 "ofType": null
               }
             },
@@ -16944,31 +17270,7 @@
             "deprecationReason": null
           },
           {
-            "name": "coverPhoto_every",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "AssetWhereInput",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "coverPhoto_none",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "AssetWhereInput",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "coverPhoto_some",
+            "name": "coverPhoto",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -17200,6 +17502,134 @@
             "deprecationReason": null
           },
           {
+            "name": "district",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_contains",
+            "description": "All values containing the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_ends_with",
+            "description": "All values ending with the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_in",
+            "description": "All values that are contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_not",
+            "description": "Any other value that exists and is not equal to the given value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_not_contains",
+            "description": "All values not containing the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_not_ends_with",
+            "description": "All values not ending with the given string",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_not_in",
+            "description": "All values that are not contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_not_starts_with",
+            "description": "All values not starting with the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_starts_with",
+            "description": "All values starting with the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "documentInStages_every",
             "description": null,
             "type": {
@@ -17229,6 +17659,134 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "OfferWhereStageInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_contains",
+            "description": "All values containing the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_ends_with",
+            "description": "All values ending with the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_in",
+            "description": "All values that are contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_not",
+            "description": "Any other value that exists and is not equal to the given value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_not_contains",
+            "description": "All values not containing the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_not_ends_with",
+            "description": "All values not ending with the given string",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_not_in",
+            "description": "All values that are not contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_not_starts_with",
+            "description": "All values not starting with the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_starts_with",
+            "description": "All values starting with the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -17585,6 +18143,42 @@
             "type": {
               "kind": "SCALAR",
               "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "offerPhotos_every",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "AssetWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "offerPhotos_none",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "AssetWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "offerPhotos_some",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "AssetWhereInput",
               "ofType": null
             },
             "defaultValue": null,
@@ -17976,134 +18570,6 @@
             "deprecationReason": null
           },
           {
-            "name": "type",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_contains",
-            "description": "All values containing the given string.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_ends_with",
-            "description": "All values ending with the given string.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_in",
-            "description": "All values that are contained in given list.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_not",
-            "description": "Any other value that exists and is not equal to the given value.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_not_contains",
-            "description": "All values not containing the given string.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_not_ends_with",
-            "description": "All values not ending with the given string",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_not_in",
-            "description": "All values that are not contained in given list.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_not_starts_with",
-            "description": "All values not starting with the given string.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_starts_with",
-            "description": "All values starting with the given string.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "updatedAt",
             "description": null,
             "type": {
@@ -18293,6 +18759,30 @@
             "deprecationReason": null
           },
           {
+            "name": "district_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "flatArea_ASC",
             "description": null,
             "isDeprecated": false,
@@ -18389,18 +18879,6 @@
             "deprecationReason": null
           },
           {
-            "name": "type_ASC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_DESC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "updatedAt_ASC",
             "description": null,
             "isDeprecated": false,
@@ -18474,7 +18952,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "AssetUpdateManyInlineInput",
+              "name": "AssetUpdateOneInlineInput",
               "ofType": null
             },
             "defaultValue": null,
@@ -18487,6 +18965,30 @@
             "type": {
               "kind": "SCALAR",
               "name": "Date",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -18574,6 +19076,18 @@
             "deprecationReason": null
           },
           {
+            "name": "offerPhotos",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "AssetUpdateManyInlineInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "offerSlug",
             "description": null,
             "type": {
@@ -18591,18 +19105,6 @@
             "type": {
               "kind": "SCALAR",
               "name": "Float",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -19001,6 +19503,30 @@
             "deprecationReason": null
           },
           {
+            "name": "district",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "flatArea",
             "description": null,
             "type": {
@@ -19086,18 +19612,6 @@
             "type": {
               "kind": "SCALAR",
               "name": "Float",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -19994,31 +20508,7 @@
             "deprecationReason": null
           },
           {
-            "name": "coverPhoto_every",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "AssetWhereInput",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "coverPhoto_none",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "AssetWhereInput",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "coverPhoto_some",
+            "name": "coverPhoto",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -20250,6 +20740,134 @@
             "deprecationReason": null
           },
           {
+            "name": "district",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_contains",
+            "description": "All values containing the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_ends_with",
+            "description": "All values ending with the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_in",
+            "description": "All values that are contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_not",
+            "description": "Any other value that exists and is not equal to the given value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_not_contains",
+            "description": "All values not containing the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_not_ends_with",
+            "description": "All values not ending with the given string",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_not_in",
+            "description": "All values that are not contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_not_starts_with",
+            "description": "All values not starting with the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "district_starts_with",
+            "description": "All values starting with the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "documentInStages_every",
             "description": null,
             "type": {
@@ -20279,6 +20897,134 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "OfferWhereStageInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_contains",
+            "description": "All values containing the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_ends_with",
+            "description": "All values ending with the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_in",
+            "description": "All values that are contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_not",
+            "description": "Any other value that exists and is not equal to the given value.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_not_contains",
+            "description": "All values not containing the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_not_ends_with",
+            "description": "All values not ending with the given string",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_not_in",
+            "description": "All values that are not contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_not_starts_with",
+            "description": "All values not starting with the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "estateType_starts_with",
+            "description": "All values starting with the given string.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -20898,6 +21644,42 @@
             "deprecationReason": null
           },
           {
+            "name": "offerPhotos_every",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "AssetWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "offerPhotos_none",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "AssetWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "offerPhotos_some",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "AssetWhereInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "offerSlug",
             "description": null,
             "type": {
@@ -21275,134 +22057,6 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "ScheduledOperationWhereInput",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_contains",
-            "description": "All values containing the given string.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_ends_with",
-            "description": "All values ending with the given string.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_in",
-            "description": "All values that are contained in given list.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_not",
-            "description": "Any other value that exists and is not equal to the given value.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_not_contains",
-            "description": "All values not containing the given string.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_not_ends_with",
-            "description": "All values not ending with the given string",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_not_in",
-            "description": "All values that are not contained in given list.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_not_starts_with",
-            "description": "All values not starting with the given string.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type_starts_with",
-            "description": "All values starting with the given string.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
               "ofType": null
             },
             "defaultValue": null,

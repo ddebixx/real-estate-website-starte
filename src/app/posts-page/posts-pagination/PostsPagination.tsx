@@ -8,7 +8,7 @@ interface PaginationProps {
   pathname: string;
 }
 
-const Pagination = ({ page, pageCount, pathname }: PaginationProps) => {
+const PostsPagination = ({ page, pageCount, pathname }: PaginationProps) => {
   return (
     <>
       {page !== 1 && (
@@ -37,4 +37,4 @@ const Pagination = ({ page, pageCount, pathname }: PaginationProps) => {
   );
 };
 
-export default Pagination;
+export default PostsPagination;

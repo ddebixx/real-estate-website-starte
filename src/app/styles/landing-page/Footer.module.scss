@@ -1,7 +1,9 @@
 .footer {
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     box-shadow: 0 0 15px rgba($color: #000, $alpha: .1);
     background-color: #fff;
@@ -15,8 +17,8 @@
     max-width: 1200px;
     width: 100%;
     flex-wrap: wrap;
-    margin: 0 auto;
-    padding: 2rem;    
+    margin: 0 auto;  
+    padding: 4rem; 
 
     h4 {
         font-size: 1.2rem;
@@ -31,7 +33,7 @@
 .contact ul {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 1rem;
 
     .contact_icon {
         width: 24px;
@@ -50,11 +52,11 @@
     }
 }
 
-.posts ul{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
+// .posts ul{
+//     display: flex;
+//     flex-direction: column;
+//     gap: 16px;
+// }
 
 @media screen and (max-width: 768px) {
     .footer_elements {
@@ -64,4 +66,61 @@
         gap: 2rem;
         margin-bottom: 2.5rem;
     }
+
+    .footer_elements {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
+        max-width: 1200px;
+        width: 100%;
+        flex-wrap: wrap;
+        margin: 0 auto;  
+        padding: 4rem; 
+        
+    
+        h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--main-color);
+            margin-bottom: 10px;
+        }
+    }
+    
+    .contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        width: 100%;
+        font-size: 1.2rem;
+    
+        ul {
+            gap: 2rem;
+        }
+
+        li:hover .contact_icon {
+            color: var(--main-color);
+            scale: .95;
+        }
+    }
+    
+    // .posts ul{
+    //     display: flex;
+    //     flex-direction: column;
+    //     gap: 16px;
+    // }
+}
+
+@media  screen and (max-width: 480px) {
+    .contact {
+        font-size: .8rem;
+
+        h4 {
+            font-size: 1.2rem;
+        }
+    }
+
+    
 }

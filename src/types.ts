@@ -52,6 +52,7 @@ export type Asset = Node & {
   localizations: Array<Asset>;
   /** The mime type of the file */
   mimeType?: Maybe<Scalars['String']>;
+  offerPhotosOffer: Array<Offer>;
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>;
   /** User that last published this document */
@@ -137,6 +138,20 @@ export type AssetLocalizationsArgs = {
 
 
 /** Asset system model */
+export type AssetOfferPhotosOfferArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  orderBy?: InputMaybe<OfferOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<OfferWhereInput>;
+};
+
+
+/** Asset system model */
 export type AssetPublishedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
@@ -207,6 +222,7 @@ export type AssetCreateInput = {
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: InputMaybe<AssetCreateLocalizationsInput>;
   mimeType?: InputMaybe<Scalars['String']>;
+  offerPhotosOffer?: InputMaybe<OfferCreateManyInlineInput>;
   size?: InputMaybe<Scalars['Float']>;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
   width?: InputMaybe<Scalars['Float']>;
@@ -311,6 +327,9 @@ export type AssetManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']>;
+  offerPhotosOffer_every?: InputMaybe<OfferWhereInput>;
+  offerPhotosOffer_none?: InputMaybe<OfferWhereInput>;
+  offerPhotosOffer_some?: InputMaybe<OfferWhereInput>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -388,6 +407,7 @@ export type AssetUpdateInput = {
   /** Manage document localizations */
   localizations?: InputMaybe<AssetUpdateLocalizationsInput>;
   mimeType?: InputMaybe<Scalars['String']>;
+  offerPhotosOffer?: InputMaybe<OfferUpdateManyInlineInput>;
   size?: InputMaybe<Scalars['Float']>;
   width?: InputMaybe<Scalars['Float']>;
 };
@@ -642,6 +662,9 @@ export type AssetWhereInput = {
   mimeType_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   mimeType_starts_with?: InputMaybe<Scalars['String']>;
+  offerPhotosOffer_every?: InputMaybe<OfferWhereInput>;
+  offerPhotosOffer_none?: InputMaybe<OfferWhereInput>;
+  offerPhotosOffer_some?: InputMaybe<OfferWhereInput>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -2162,14 +2185,16 @@ export type Offer = Node & {
   author?: Maybe<Author>;
   bathrooms: Scalars['Int'];
   bedrooms: Scalars['Int'];
-  coverPhoto: Array<Asset>;
+  coverPhoto: Asset;
   /** The time the document was created */
   createdAt: Scalars['DateTime'];
   /** User that created this document */
   createdBy?: Maybe<User>;
   datePublished: Scalars['Date'];
+  district?: Maybe<Scalars['String']>;
   /** Get the document in other stages */
   documentInStages: Array<Offer>;
+  estateType: Scalars['String'];
   flatArea: Scalars['String'];
   flatDescription: RichText;
   flatInfo: Array<Scalars['String']>;
@@ -2183,6 +2208,7 @@ export type Offer = Node & {
   locale: Locale;
   /** Get the other localizations for this document */
   localizations: Array<Offer>;
+  offerPhotos: Array<Asset>;
   offerSlug?: Maybe<Scalars['String']>;
   price: Scalars['Float'];
   /** The time the document was published. Null on documents in draft stage. */
@@ -2206,15 +2232,8 @@ export type OfferAuthorArgs = {
 
 
 export type OfferCoverPhotoArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
   forceParentLocale?: InputMaybe<Scalars['Boolean']>;
-  last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
-  orderBy?: InputMaybe<AssetOrderByInput>;
-  skip?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<AssetWhereInput>;
 };
 
 
@@ -2246,6 +2265,19 @@ export type OfferHistoryArgs = {
 export type OfferLocalizationsArgs = {
   includeCurrent?: Scalars['Boolean'];
   locales?: Array<Locale>;
+};
+
+
+export type OfferOfferPhotosArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  orderBy?: InputMaybe<AssetOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<AssetWhereInput>;
 };
 
 
@@ -2305,9 +2337,11 @@ export type OfferCreateInput = {
   author?: InputMaybe<AuthorCreateOneInlineInput>;
   bathrooms: Scalars['Int'];
   bedrooms: Scalars['Int'];
-  coverPhoto: AssetCreateManyInlineInput;
+  coverPhoto: AssetCreateOneInlineInput;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   datePublished: Scalars['Date'];
+  district?: InputMaybe<Scalars['String']>;
+  estateType: Scalars['String'];
   flatArea: Scalars['String'];
   flatDescription: Scalars['RichTextAST'];
   flatInfo?: InputMaybe<Array<Scalars['String']>>;
@@ -2317,6 +2351,7 @@ export type OfferCreateInput = {
   label?: InputMaybe<Scalars['String']>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: InputMaybe<OfferCreateLocalizationsInput>;
+  offerPhotos: AssetCreateManyInlineInput;
   offerSlug?: InputMaybe<Scalars['String']>;
   price: Scalars['Float'];
   updatedAt?: InputMaybe<Scalars['DateTime']>;
@@ -2405,9 +2440,7 @@ export type OfferManyWhereInput = {
   bedrooms_not?: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   bedrooms_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  coverPhoto_every?: InputMaybe<AssetWhereInput>;
-  coverPhoto_none?: InputMaybe<AssetWhereInput>;
-  coverPhoto_some?: InputMaybe<AssetWhereInput>;
+  coverPhoto?: InputMaybe<AssetWhereInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -2439,9 +2472,47 @@ export type OfferManyWhereInput = {
   datePublished_not?: InputMaybe<Scalars['Date']>;
   /** All values that are not contained in given list. */
   datePublished_not_in?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  district?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  district_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  district_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  district_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  district_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  district_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  district_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  district_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  district_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  district_starts_with?: InputMaybe<Scalars['String']>;
   documentInStages_every?: InputMaybe<OfferWhereStageInput>;
   documentInStages_none?: InputMaybe<OfferWhereStageInput>;
   documentInStages_some?: InputMaybe<OfferWhereStageInput>;
+  estateType?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  estateType_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  estateType_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  estateType_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  estateType_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  estateType_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  estateType_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  estateType_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  estateType_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  estateType_starts_with?: InputMaybe<Scalars['String']>;
   flatArea?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   flatArea_contains?: InputMaybe<Scalars['String']>;
@@ -2490,6 +2561,9 @@ export type OfferManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']>;
+  offerPhotos_every?: InputMaybe<AssetWhereInput>;
+  offerPhotos_none?: InputMaybe<AssetWhereInput>;
+  offerPhotos_some?: InputMaybe<AssetWhereInput>;
   offerSlug?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   offerSlug_contains?: InputMaybe<Scalars['String']>;
@@ -2572,6 +2646,10 @@ export enum OfferOrderByInput {
   CreatedAtDesc = 'createdAt_DESC',
   DatePublishedAsc = 'datePublished_ASC',
   DatePublishedDesc = 'datePublished_DESC',
+  DistrictAsc = 'district_ASC',
+  DistrictDesc = 'district_DESC',
+  EstateTypeAsc = 'estateType_ASC',
+  EstateTypeDesc = 'estateType_DESC',
   FlatAreaAsc = 'flatArea_ASC',
   FlatAreaDesc = 'flatArea_DESC',
   FlatInfoAsc = 'flatInfo_ASC',
@@ -2598,8 +2676,10 @@ export type OfferUpdateInput = {
   author?: InputMaybe<AuthorUpdateOneInlineInput>;
   bathrooms?: InputMaybe<Scalars['Int']>;
   bedrooms?: InputMaybe<Scalars['Int']>;
-  coverPhoto?: InputMaybe<AssetUpdateManyInlineInput>;
+  coverPhoto?: InputMaybe<AssetUpdateOneInlineInput>;
   datePublished?: InputMaybe<Scalars['Date']>;
+  district?: InputMaybe<Scalars['String']>;
+  estateType?: InputMaybe<Scalars['String']>;
   flatArea?: InputMaybe<Scalars['String']>;
   flatDescription?: InputMaybe<Scalars['RichTextAST']>;
   flatInfo?: InputMaybe<Array<Scalars['String']>>;
@@ -2609,6 +2689,7 @@ export type OfferUpdateInput = {
   label?: InputMaybe<Scalars['String']>;
   /** Manage document localizations */
   localizations?: InputMaybe<OfferUpdateLocalizationsInput>;
+  offerPhotos?: InputMaybe<AssetUpdateManyInlineInput>;
   offerSlug?: InputMaybe<Scalars['String']>;
   price?: InputMaybe<Scalars['Float']>;
 };
@@ -2657,6 +2738,8 @@ export type OfferUpdateManyInput = {
   bathrooms?: InputMaybe<Scalars['Int']>;
   bedrooms?: InputMaybe<Scalars['Int']>;
   datePublished?: InputMaybe<Scalars['Date']>;
+  district?: InputMaybe<Scalars['String']>;
+  estateType?: InputMaybe<Scalars['String']>;
   flatArea?: InputMaybe<Scalars['String']>;
   flatDescription?: InputMaybe<Scalars['RichTextAST']>;
   flatInfo?: InputMaybe<Array<Scalars['String']>>;
@@ -2800,9 +2883,7 @@ export type OfferWhereInput = {
   bedrooms_not?: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   bedrooms_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  coverPhoto_every?: InputMaybe<AssetWhereInput>;
-  coverPhoto_none?: InputMaybe<AssetWhereInput>;
-  coverPhoto_some?: InputMaybe<AssetWhereInput>;
+  coverPhoto?: InputMaybe<AssetWhereInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -2834,9 +2915,47 @@ export type OfferWhereInput = {
   datePublished_not?: InputMaybe<Scalars['Date']>;
   /** All values that are not contained in given list. */
   datePublished_not_in?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  district?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  district_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  district_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  district_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  district_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  district_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  district_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  district_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  district_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  district_starts_with?: InputMaybe<Scalars['String']>;
   documentInStages_every?: InputMaybe<OfferWhereStageInput>;
   documentInStages_none?: InputMaybe<OfferWhereStageInput>;
   documentInStages_some?: InputMaybe<OfferWhereStageInput>;
+  estateType?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  estateType_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  estateType_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  estateType_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  estateType_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  estateType_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  estateType_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  estateType_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  estateType_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  estateType_starts_with?: InputMaybe<Scalars['String']>;
   flatArea?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   flatArea_contains?: InputMaybe<Scalars['String']>;
@@ -2923,6 +3042,9 @@ export type OfferWhereInput = {
   label_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   label_starts_with?: InputMaybe<Scalars['String']>;
+  offerPhotos_every?: InputMaybe<AssetWhereInput>;
+  offerPhotos_none?: InputMaybe<AssetWhereInput>;
+  offerPhotos_some?: InputMaybe<AssetWhereInput>;
   offerSlug?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   offerSlug_contains?: InputMaybe<Scalars['String']>;
@@ -5523,6 +5645,15 @@ export enum _SystemDateTimeFieldVariation {
   Localization = 'localization'
 }
 
+export type GetOffersQueryVariables = Exact<{
+  skip: Scalars['Int'];
+  estateTypeIn?: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
+  districtTypeIn?: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
+}>;
+
+
+export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?: 'Offer', estateType: string, address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatTitle: string, flatArea: string, district?: string | null, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, flatDescription: { __typename?: 'RichText', html: string }, coverPhoto: { __typename?: 'Asset', url: string } }>, offersConnection: { __typename?: 'OfferConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, endCursor?: string | null, pageSize?: number | null, startCursor?: string | null }, edges: Array<{ __typename?: 'OfferEdge', node: { __typename?: 'Offer', address: string, id: string } }>, aggregate: { __typename?: 'Aggregate', count: number } } };
+
 export type GetAuthorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -5533,12 +5664,7 @@ export type GetOfferQueryVariables = Exact<{
 }>;
 
 
-export type GetOfferQuery = { __typename?: 'Query', offer?: { __typename?: 'Offer', address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatArea: string, flatTitle: string, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, flatDescription: { __typename?: 'RichText', html: string }, coverPhoto: Array<{ __typename?: 'Asset', url: string }> } | null };
-
-export type GetOffersQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetOffersQuery = { __typename?: 'Query', offers: Array<{ __typename?: 'Offer', address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatArea: string, flatTitle: string, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, coverPhoto: Array<{ __typename?: 'Asset', url: string }> }> };
+export type GetOfferQuery = { __typename?: 'Query', offer?: { __typename?: 'Offer', address: string, bedrooms: number, bathrooms: number, datePublished: any, label?: string | null, flatInfo: Array<string>, flatArea: string, flatTitle: string, price: number, id: string, offerSlug?: string | null, author?: { __typename?: 'Author', id: string, authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null, flatDescription: { __typename?: 'RichText', html: string }, offerPhotos: Array<{ __typename?: 'Asset', url: string }> } | null };
 
 export type GetPostQueryVariables = Exact<{
   postSlug: Scalars['String'];
@@ -5547,10 +5673,12 @@ export type GetPostQueryVariables = Exact<{
 
 export type GetPostQuery = { __typename?: 'Query', post?: { __typename?: 'Post', postPublishDate: any, postTitle: string, postSlug?: string | null, postContent?: { __typename?: 'RichText', html: string } | null, author?: { __typename?: 'Author', authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null } | null };
 
-export type GetPostsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetPostsQueryVariables = Exact<{
+  skip: Scalars['Int'];
+}>;
 
 
-export type GetPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, postPublishDate: any, postTitle: string, postSlug?: string | null, postContent?: { __typename?: 'RichText', html: string } | null, author?: { __typename?: 'Author', authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null }> };
+export type GetPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, postPublishDate: any, postTitle: string, postSlug?: string | null, postContent?: { __typename?: 'RichText', html: string } | null, author?: { __typename?: 'Author', authorName: string, authorPhoto?: { __typename?: 'Asset', url: string } | null } | null }>, postsConnection: { __typename?: 'PostConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, endCursor?: string | null, pageSize?: number | null, startCursor?: string | null }, edges: Array<{ __typename?: 'PostEdge', cursor: string, node: { __typename?: 'Post', id: string } }>, aggregate: { __typename?: 'Aggregate', count: number } } };
 
 
       export type PossibleTypesResultData = {
@@ -5595,9 +5723,9 @@ export type GetPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 
     
 export const namedOperations = {
   Query: {
+    GetOffers: 'GetOffers',
     GetAuthors: 'GetAuthors',
     GetOffer: 'GetOffer',
-    GetOffers: 'GetOffers',
     GetPost: 'GetPost',
     GetPosts: 'GetPosts'
   }

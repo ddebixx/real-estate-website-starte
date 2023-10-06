@@ -1,7 +1,7 @@
+import { GetPostQuery } from "../../types"
+import { client } from "../components/landing-page/apollo-client"
+import { GetPostDocument } from "../queries/GetPost.generated"
 
-import { GetPostQuery } from "../../../../types"
-import { GetPostDocument } from "../../../queries/GetPost.generated"
-import { client } from "../apollo-client"
 
 
 export const getPost = async (postSlug:string) => {

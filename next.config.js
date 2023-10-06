@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  }
 }
 
 module.exports = {
@@ -12,7 +9,7 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'media.graphassets.com',
+        hostname: '**',
         port: '',
         pathname: '**',
       },

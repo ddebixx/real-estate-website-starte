@@ -1,16 +1,41 @@
 "use client";
 
 import React from 'react';
-import { Filters } from './filters/Filters';
 import { Offers } from './Offers';
+import { FiltersComponent } from './filters/FiltersComponent';
+import type { FiltersCheckboxes, DistrictOptionSelect } from '../features/offers/types/filters';
 
 
-export default async function offerPage() {
+type PageProps = {
+    searchParams: FiltersCheckboxes & DistrictOptionSelect;
+}
+
+export default async function Page({ searchParams }: PageProps) {
+    const estateTypes = Object.entries(searchParams)
+        .filter(([key, value]) => value === 'true')
+        .map(([key]) => key);
+
+    const districtName = Object.entries(searchParams)
+        .filter(([key, value]) => value === typeof "string")
+        .map(([key]) => key);
+
+    const filters = Object.entries(searchParams).map(([key, value]) => {
+        if (value === "true") {
+            return [key, true]
+        }
+
+        if (value === "false") {
+            return [key, false]
+        }
+
+        return [key, value]
+    })
+
 
     return (
         <>
-            <Filters />
-            <Offers />
+            <FiltersComponent defaultValues={searchParams} />
+            <Offers estateTypes={estateTypes} districtName={districtName} />
         </>
     )
 }
